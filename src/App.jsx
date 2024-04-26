@@ -25,15 +25,14 @@ function App() {
       <div className="App ">
         <NavBar id="navbar"  />
         <NavBarLateral>
-
           <Routes>
             <Route path="/" element={<Inicio />} />
             <Route path="/Actores" element={<Actores />} />
             <Route path="/Categorias" element={<Categorias />} />
             <Route path="/Filtros" element={<Filtros />} />
             <Route path="/Peliculas" element={<Peliculas />} />
-            <Route path="/" element={<Puntuacion />} />
-            <Route path="/" element={<Series />} />
+            <Route path="/Puntuacion" element={<Puntuacion />} />
+            <Route path="/Series" element={<Series />} />
             <Route path="/FAQs" element={<Faqs/>} />
             <Route path="/RatexPrivacyPolicy" element={<RatexPrivacyPolicy />} />
           </Routes>
