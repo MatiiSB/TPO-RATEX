@@ -19,32 +19,32 @@ function NavBarLateral({ children }) {
       Icon: <FaTh/>,
     },
     {
-      path: "/peliculas",
+      path: "./Peliculas",
       name: "Peliculas",
       Icon: <FaFilm/>,
     },
     {
-      path: "/serires",
+      path: "/Series",
       name: "Series",
       Icon: <FaTv />,
     },
     {
-      path: "/categorias",
+      path: "/Categorias",
       name: "Categorias",
       Icon: <FaThLarge />,
     },
     {
-      path: "/actores",
+      path: "/Actores",
       name: "Actores",
       Icon: <FaUser />,
     },
     {
-      path: "/filtros",
+      path: "/Filtros",
       name: "Filtros",
       Icon: <FaFilter />,
     },
     {
-      path: "/puntuacion",
+      path: "/Puntuacion",
       name: "Puntuacion",
       Icon: <FaRegStar />,
     },
