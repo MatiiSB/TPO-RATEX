@@ -1,0 +1,29 @@
+.AccountMenu{
+
+    width: 32px;
+    height: 32px;
+    transition: 0.5s;
+
+}
+
+
+.AccountMenu:hover{
+    filter: drop-shadow(0  0  10px #F6F5E4);
+}
+
+#listaMenu{
+    background-color: black;
+    box-shadow: 5px 2px 10px 5px #742ca3;
+}
+
+#itemMenu{
+    color: #F6F5E4;
+    font-family: Catamaran;
+    transition: 0.8;
+    letter-spacing: 1px;
+    background-color: #000000ba;
+}
+
+#itemMenu:hover{
+    background-color: #161517ba;
+}

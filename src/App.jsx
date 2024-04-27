@@ -1,5 +1,5 @@
 import "./App.css";
-import NavBar from "./Components/NavBar.jsx";
+import {NavBar} from "./Components/NavBar.jsx";
 import Inicio from "./Components/Inicio.jsx";
 import MiFooter from "./Components/MiFooter.jsx";
 import RatexPrivacyPolicy from "./Components/RatexPrivacyPolicy.jsx";
@@ -12,13 +12,17 @@ import Puntuacion from "./paginas/Puntuacion.jsx";
 import Series from "./paginas/Series.jsx";
 import Peliculas from "./paginas/Peliculas.jsx";
 import {Faqs} from "./Components/FAQs.jsx"
+import React, {useState} from "react";
+
 
 
 function App() {
+
+
   return (
     <BrowserRouter>
       <div className="App ">
-        <NavBar id="navbar" />
+        <NavBar id="navbar"  />
         <NavBarLateral>
           <Routes>
             <Route path="/" element={<Inicio />} />

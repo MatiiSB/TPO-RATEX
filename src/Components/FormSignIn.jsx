@@ -4,10 +4,9 @@ import TextField from '@mui/material/TextField';
 import Dialog from '@mui/material/Dialog';
 import DialogActions from '@mui/material/DialogActions';
 import DialogContent from '@mui/material/DialogContent';
-import DialogContentText from '@mui/material/DialogContentText';
 import DialogTitle from '@mui/material/DialogTitle';
-import FormDialog from "./FormLogIn";
-import CreateUna from "./CreateUna";
+import Checkbox from '@mui/material/Checkbox';
+import { useState } from 'react';
 
 //-----------------------------------
 
@@ -18,11 +17,12 @@ import InputAdornment from '@mui/material/InputAdornment';
 import FormControl from '@mui/material/FormControl';
 import Visibility from '@mui/icons-material/Visibility';
 import VisibilityOff from '@mui/icons-material/VisibilityOff';
-import "./FormLogIn.css"
+import "./FormSignIn.css"
 import { Link } from 'react-router-dom';
+import { purple } from '@mui/material/colors';
 
-export default function FormDialogSign() {
-  const [open, setOpen] = React.useState(false);
+export default function FormSignIn( {user,setUser} ) {
+  const [open, setOpen] = React.useState(false);  
 
   const handleClickOpen = () => {
     setOpen(true);
@@ -41,13 +41,34 @@ export default function FormDialogSign() {
     event.preventDefault();
   };
 
+  //checkbox
+  const label = { inputProps: { 'aria-label': 'Checkbox demo' } };
+
+
+  //----------constantes cambio de nav-------------------//
+  const [nombreSign,setNombreSign] = useState("")
+  const [apellido,setApellido] = useState("")
+  const [mailSign,setMailSign] = useState("")
+  const [passSign,setPassSign] = useState("")
+  const [error,setError] = useState(false)
+
+  const handleSubmit = (e)=> {
+    e.preventDefault();
+    if(nombreSign === "" || apellido === "" || mailSign === "" || passSign === ""){
+      setError(true)
+      return
+    }
+    setError(false)
+    setUser([nombreSign,apellido,mailSign,passSign])
+  }
+
   return (
     <React.Fragment>
-      <Button id='boton' onClick={handleClickOpen}>
-        SIGN IN
+      <Button id='boton'  onClick={handleClickOpen}>
+        REGISTRARSE
       </Button>
       <Dialog 
-        
+        onSubmit={handleSubmit}
         open={open}
         onClose={handleClose}
         PaperProps={{
@@ -59,7 +80,7 @@ export default function FormDialogSign() {
             alignItems: "center",
             borderRadius: "75px",
             width: "500px",
-            height: "450px",
+            height: "590px",
             padding: "40px",
             boxShadow: " 0 0 0 2px #62079F",
           } ,
@@ -75,11 +96,44 @@ export default function FormDialogSign() {
           
         }}
       >
-        <DialogTitle id='titulo' >SIGN IN</DialogTitle>
+        <DialogTitle id='titulo' >REGISTRARSE</DialogTitle>
         <DialogContent id='campos'>
+        <TextField
+            autoFocus
+            value={nombreSign}
+            onChange={(e) => setNombreSign(e.target.value)}
+            required
+            margin="dense"
+            id="nombre"
+            name="text"
+            label="Nombre"
+            type="text"
+            fullWidth
+            variant="filled"
+            placeholder='Jhon'
+            color='secondary'
+            style={{backgroundColor: "#F3F3F322", borderRadius: "5px", }}
+          />
+          <TextField
+            autoFocus
+            value={apellido}
+            onChange={(e) => setApellido(e.target.value)}
+            margin="dense"
+            id="apellido"
+            name="apellido"
+            label="Apellido"
+            type="text"
+            fullWidth
+            variant="filled"
+            placeholder='Doe'
+            color='secondary'
+            style={{backgroundColor: "#F3F3F322", borderRadius: "5px", color: "#62079F", fontFamily: "Inder" }}
+          />
           <TextField
             autoFocus
             required
+            value={mailSign}
+            onChange={(e) => setMailSign(e.target.value)}
             margin="dense"
             id="email"
             name="email"
@@ -96,6 +150,8 @@ export default function FormDialogSign() {
           <Input
             id="filled-adornment-password"
             type={showPassword ? 'text' : 'password'}
+            value={passSign}
+            onChange={(e) => setPassSign(e.target.value)}
             style={{backgroundColor: "#F3F3F322", borderRadius: "5px", color:"#F6F5E4", fontFamily: "Inder", paddingTop: "0px", fontWeight: "500" }}
             endAdornment={
               <InputAdornment position="end">
@@ -111,9 +167,11 @@ export default function FormDialogSign() {
           />
         </FormControl>
         <div className='checkboxContainer'>
-        <label>Aún no tenes cuenta? {<a><CreateUna/></a>}
+        <label>Acepto las {<Link target='_blank' to="/RatexPrivacyPolicy"><strong>Politicas de Privacidad </strong></Link>}
         </label>
-        
+        <Checkbox {...label} size='small' sx={{
+          color: purple[800], '&.Mui-checked': {color: purple[600],},}}
+      />
         </div>        
 
         </DialogContent>

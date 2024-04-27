@@ -16,6 +16,8 @@
 .sidebar{
     background-color: #62079F;
     transition: all 0.2s;
+    border-right: 2px solid rgba(199, 60, 241, 0.732);
+    box-shadow: 0 27px 25px 3px rgba(199, 60, 241, 0.732);
 
 }
 .top_section{

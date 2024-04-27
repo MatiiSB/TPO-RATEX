@@ -40,6 +40,10 @@
     opacity: 0;
 }
 
+.searchBarContainer input:focus{
+    box-shadow: 0 0 150px  5px #c653e994;
+}
+
 
 
 .buscar{

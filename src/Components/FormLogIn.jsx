@@ -4,9 +4,8 @@ import TextField from '@mui/material/TextField';
 import Dialog from '@mui/material/Dialog';
 import DialogActions from '@mui/material/DialogActions';
 import DialogContent from '@mui/material/DialogContent';
-import DialogContentText from '@mui/material/DialogContentText';
 import DialogTitle from '@mui/material/DialogTitle';
-import Checkbox from '@mui/material/Checkbox';
+import { useState } from 'react';
 
 //-----------------------------------
 
@@ -17,11 +16,10 @@ import InputAdornment from '@mui/material/InputAdornment';
 import FormControl from '@mui/material/FormControl';
 import Visibility from '@mui/icons-material/Visibility';
 import VisibilityOff from '@mui/icons-material/VisibilityOff';
-import "./FormSignIn.css"
-import { Link } from 'react-router-dom';
-import { purple } from '@mui/material/colors';
+import "./FormLogIn.css"
+import FormSignIn from './FormSignIn';
 
-export default function FormDialog() {
+export default function FormDialog({setUser}) {
   const [open, setOpen] = React.useState(false);
 
   const handleClickOpen = () => {
@@ -41,17 +39,34 @@ export default function FormDialog() {
     event.preventDefault();
   };
 
-  //checkbox
-  const label = { inputProps: { 'aria-label': 'Checkbox demo' } };
+  //------DATOS DE INICIO SESION---------//
+  
+  const [mail, setMail]= useState("")
+  const [pass, setPass]= useState("")
+  const [error, setError]= useState(false)
 
+  const handleSubmit = (e) => {
+    e.preventDefault();
+
+    if(mail === "" || pass === ""){
+      setError(true)
+      return
+    }
+    setError(false)
+    setUser([mail,pass])
+
+  }
+
+  //--------Para el create una---------//
+  const [usuario, setUsuario] = useState([])
 
   return (
     <React.Fragment>
-      <Button id='boton'  onClick={handleClickOpen}>
-        LOG IN
+      <Button id='boton' onClick={handleClickOpen}>
+        INICIAR SESION
       </Button>
       <Dialog 
-        
+        onSubmit={handleSubmit}
         open={open}
         onClose={handleClose}
         PaperProps={{
@@ -63,7 +78,7 @@ export default function FormDialog() {
             alignItems: "center",
             borderRadius: "75px",
             width: "500px",
-            height: "590px",
+            height: "480px",
             padding: "40px",
             boxShadow: " 0 0 0 2px #62079F",
           } ,
@@ -79,37 +94,11 @@ export default function FormDialog() {
           
         }}
       >
-        <DialogTitle id='titulo' >LOG IN</DialogTitle>
+        <DialogTitle id='titulo' >INICIAR SESION</DialogTitle>
         <DialogContent id='campos'>
-        <TextField
-            autoFocus
-            required
-            margin="dense"
-            id="nombre"
-            name="text"
-            label="Nombre"
-            type="text"
-            fullWidth
-            variant="filled"
-            placeholder='Jhon'
-            color='secondary'
-            style={{backgroundColor: "#F3F3F322", borderRadius: "5px", }}
-          />
           <TextField
-            autoFocus
-            required
-            margin="dense"
-            id="apellido"
-            name="apellido"
-            label="Apellido"
-            type="text"
-            fullWidth
-            variant="filled"
-            placeholder='Doe'
-            color='secondary'
-            style={{backgroundColor: "#F3F3F322", borderRadius: "5px", color: "#62079F", fontFamily: "Inder" }}
-          />
-          <TextField
+          value={mail}
+          onChange={ (e) => setMail(e.target.value) }
             autoFocus
             required
             margin="dense"
@@ -128,6 +117,8 @@ export default function FormDialog() {
           <Input
             id="filled-adornment-password"
             type={showPassword ? 'text' : 'password'}
+            value={pass}  
+            onChange={ (e) => setPass(e.target.value) }
             style={{backgroundColor: "#F3F3F322", borderRadius: "5px", color:"#F6F5E4", fontFamily: "Inder", paddingTop: "0px", fontWeight: "500" }}
             endAdornment={
               <InputAdornment position="end">
@@ -143,11 +134,9 @@ export default function FormDialog() {
           />
         </FormControl>
         <div className='checkboxContainer'>
-        <label>Acepto las {<Link target='_blank' to="/RatexPrivacyPolicy"><strong>Politicas de Privacidad </strong></Link>}
+        <label>Aún no tenes cuenta? {<a><FormSignIn setUser={setUser}/></a>}
         </label>
-        <Checkbox {...label} size='small' sx={{
-          color: purple[800], '&.Mui-checked': {color: purple[600],},}}
-      />
+        
         </div>        
 
         </DialogContent>
@@ -155,7 +144,13 @@ export default function FormDialog() {
           <Button id='boton' onClick={handleClose}>Cancelar</Button>
           <Button id='boton' type="submit">Acceder</Button>
         </DialogActions>
+
       </Dialog>
+      
+        
+      
+
+      
     </React.Fragment>
   );
 }

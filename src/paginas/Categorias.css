@@ -1,4 +1,4 @@
-.Inicio h2{
+.titulo{
     text-decoration: none;
     font-family: Catamaran;
     font-weight: 500;
@@ -9,4 +9,5 @@
     letter-spacing: 2px ;
     text-decoration: overline;
     text-shadow: 0 0 20px   #c653e994;
+    text-transform: uppercase;
 }

@@ -1,27 +1,24 @@
 import React, {useState} from "react";
 import "./NavBarStyles.css";
-import Boton from "./Boton"
 import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom';
 import SearchBar from './SearchBar';
 import FormDialog from "./FormLogIn";
-import FormDialogSign from "./FormSignIn";
+import FormSignIn from "./FormSignIn";
+import { grey } from '@mui/material/colors';
+import Avatar from '@mui/material/Avatar';
+import { Stack } from "@mui/material";
+import "./AccountMenu.css"
 
-/*let lastScrollTop = 0;
+//-----TAILWIND---------//
 
-let navbar = document.getElementById("navbar");
-window.addEventListener("scroll", function () {
-  var scrollTop = window.pageYOffset || document.documentElement.scrollTop;
-  if (scrollTop>lastScrollTop) {
-    navbar.style.top = "-80px";        
-  }
-  else{
-    navbar.style.top = "0";
-  }
-  lastScrollTop = scrollTop;
-})*/
+import { Fragment } from 'react'
+import { Menu, Transition } from '@headlessui/react'
 
-function NavBar() {
 
+export function NavBar() {
+  
+  const [user, setUser] = useState([])
+  
 
   return (
       <div className="navContainer">
@@ -32,26 +29,80 @@ function NavBar() {
         </div>
         <SearchBar></SearchBar>
         <div className="btnsContainer">
-          <ul className="btnsLista">
-            <li><FormDialogSign/></li>
-            {/*<li><Link to="/"><Boton text="LOG IN"  /></Link></li>*/}
-            <li><FormDialog/></li>
-            
-            
-          </ul>
+          
+          {
+            !user.length > 0
+            ? <ul className="btnsLista">
+                <li><FormDialog setUser={setUser} /></li>
+                <li><FormSignIn setUser={setUser}  /></li>
+              </ul>
+            : <DropDownMenu  setUser={setUser} />
+              
+          }  
+          
         </div>
       </div>
   );
 }
 
-//Adentro del link
-/*
-className="openLogInModal" 
-onClick={()=>{setOpenLogInModal(true)}*/
-
-//Afuera del link
-/*{openLogInModal && <LogInModal closeModal={setOpenLogInModal}/>}*/
-
-export default NavBar;
+/* 
+<Stack  setUser={setUser} >
+<Avatar id="avatar" sx={{ bgcolor: grey[900] }} src="/broken-image.jpg">
+</Avatar>
+</Stack>
+*/
 
 
+function classNames(...classes) {
+  return classes.filter(Boolean).join(' ')
+}
+
+export function DropDownMenu({setUser} ) {
+
+  const handleLogOut = () => {setUser([])}
+
+  return (
+    <Menu as="div" className="relative inline-block text-left">
+      <div>
+        <Menu.Button className="AccountMenu">
+          <img src={require("../Imagenes/usuarioChico.png")} ></img>
+        </Menu.Button>
+      </div>
+
+      <Transition
+        as={Fragment}
+        enter="transition ease-out duration-100"
+        enterFrom="transform opacity-0 scale-95"
+        enterTo="transform opacity-100 scale-100"
+        leave="transition ease-in duration-75"
+        leaveFrom="transform opacity-100 scale-100"
+        leaveTo="transform opacity-0 scale-95"
+      >
+        <Menu.Items className="absolute right-0 z-10 mt-2 w-56 origin-top-right rounded-md  " id="listaMenu">
+          <div className="py-1">
+            <Menu.Item id="itemMenu">
+              {({ active }) => (
+                <a className={classNames(
+                    active ? 'bg-gray-100 text-gray-900' : 'text-gray-700','block px-4 py-2 text-sm' )}>
+                  Mi perfil
+                </a>
+              )}
+            </Menu.Item>
+            
+              <Menu.Item id="itemMenu">
+                {({ active }) => (
+                  <button
+                    onClick={handleLogOut}
+                    type="submit"
+                    className={classNames(active ? 'bg-gray-100 text-gray-900' : 'text-gray-700',
+                      'block w-full px-4 py-2 text-left text-sm')}>
+                    Cerrar Sesion
+                  </button>)}
+              </Menu.Item>
+            
+          </div>
+        </Menu.Items>
+      </Transition>
+    </Menu>
+  )
+}

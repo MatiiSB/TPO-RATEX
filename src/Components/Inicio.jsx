@@ -9,11 +9,15 @@ function Inicio() {
             <div className="Inicio">
                 <h2>POPULARES</h2>
                     <Swipers></Swipers>
-                <h2>RECOMENDAS</h2>
+                <h2>RECOMENDADAS</h2>
                     <Swipers></Swipers>
             </div>
-        </>
+            </>
+
     )
 };
+
+
+
 
 export default Inicio;

@@ -1,4 +1,5 @@
 import React from "react";
+import Peliculas from "../paginas/ListaPeliculas";
 import "./Swipers.css";
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Navigation, Pagination, Scrollbar, A11y, Keyboard  } from 'swiper/modules';
@@ -30,26 +31,26 @@ function Swipers() {
     onSlideChange={() => console.log('slide change')}
     onSwiper={(swiper) => console.log(swiper)}
   >
-    <SwiperSlide className="portada"> <div className="contenedor"><h4>One Life</h4> <p>Esta es una biografia de un señor que salva nenes de nasis</p>
+    <SwiperSlide className="portada"> <div className="contenedor"><h4>{Peliculas[0].titulo}</h4> <p>{Peliculas[0].sinopsis}</p>
     </div> <img className="imagenSwiper" src={require("../Imagenes/Swiper/One_Life.jpg")}></img></SwiperSlide>
 
 
-    <SwiperSlide className="portada"> <div className="contenedor"><h4>Batman vs Superman</h4> <p>Pelicula de accion  y superheroes</p>
+    <SwiperSlide className="portada"> <div className="contenedor"><h4>{Peliculas[1].titulo}</h4> <p>{Peliculas[1].sinopsis}</p>
     </div> <img className="imagenSwiper" src={require("../Imagenes/Swiper/Batman_vs_Superman.jpg")}></img></SwiperSlide>
 
-    <SwiperSlide className="portada"> <div className="contenedor"><h4>Toy Story</h4> <p>Esta es una pelicula animada de Disney Pixar muy famosa, sobre la vida de los juguetes</p>
+    <SwiperSlide className="portada"> <div className="contenedor"><h4>{Peliculas[2].titulo}</h4> <p>{Peliculas[2].sinopsis}</p>
     </div> <img className="imagenSwiper" src={require("../Imagenes/Swiper/Toy_Story1.jpg")}></img></SwiperSlide>
 
-    <SwiperSlide className="portada"> <div className="contenedor"><h4>Dune Chapter:2</h4> <p>Esta es una pelicula de acción y ciencia ficción, futurista, muy relevante en el 2024</p>
+    <SwiperSlide className="portada"> <div className="contenedor"><h4>{Peliculas[3].titulo}</h4> <p>{Peliculas[3].sinopsis}</p>
     </div> <img className="imagenSwiper" src={require("../Imagenes/Swiper/Dune_2.jpg")}></img></SwiperSlide>
 
-    <SwiperSlide className="portada"> <div className="contenedor"><h4>Star Wars - Episode I</h4> <p>Primera pelicula de la Saga, da comienzo a un futuro lejano donde humanos y otras especies deben convivir entre galaxias</p>
+    <SwiperSlide className="portada"> <div className="contenedor"><h4>{Peliculas[4].titulo}</h4> <p>{Peliculas[4].sinopsis}</p>
     </div> <img className="imagenSwiper" src={require("../Imagenes/Swiper/Star_wars1.jpg")}></img></SwiperSlide>
 
-    <SwiperSlide className="portada"> <div className="contenedor"><h4>Godzilla x Kong - The new empire</h4> <p>Ultima pelicula donde estos dos gigantes unen para derrotar a un enemigo muy poderoso</p>
+    <SwiperSlide className="portada"> <div className="contenedor"><h4>{Peliculas[5].titulo}</h4> <p>{Peliculas[5].sinopsis}</p>
     </div> <img className="imagenSwiper" src={require("../Imagenes/Swiper/Godzilla_x_Kong.jpg")}></img></SwiperSlide>
 
-    <SwiperSlide className="portada"> <div className="contenedor"><h4>One Life</h4> <p>Esta es una biografia de un señor que salva nenes de nasis</p>
+    <SwiperSlide className="portada"> <div className="contenedor"><h4>{Peliculas[0].titulo}</h4> <p>{Peliculas[0].sinopsis}</p>
     </div> <img className="imagenSwiper" src={require("../Imagenes/Swiper/One_Life.jpg")}></img></SwiperSlide>
     -
   </Swiper>

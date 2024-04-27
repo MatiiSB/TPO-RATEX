@@ -4,10 +4,10 @@ import TextField from '@mui/material/TextField';
 import Dialog from '@mui/material/Dialog';
 import DialogActions from '@mui/material/DialogActions';
 import DialogContent from '@mui/material/DialogContent';
-import DialogContentText from '@mui/material/DialogContentText';
 import DialogTitle from '@mui/material/DialogTitle';
 import Checkbox from '@mui/material/Checkbox';
-import "./FormSignIn"
+import "./FormLogIn"
+import { useState } from 'react';
 
 //-----------------------------------
 
@@ -22,7 +22,7 @@ import "./FormSignIn.css"
 import { Link } from 'react-router-dom';
 import { purple } from '@mui/material/colors';
 
-export default function CreateUna() {
+export default function CreateUna({usuario, setUsuario}) {
   const [open, setOpen] = React.useState(false);
 
   const handleClickOpen = () => {
@@ -45,6 +45,22 @@ export default function CreateUna() {
   //checkbox
   const label = { inputProps: { 'aria-label': 'Checkbox demo' } };
 
+  //----------constantes cambio de nav-------------------//
+  const [nombreSign,setNombreSign] = useState("")
+  const [apellido,setApellido] = useState("")
+  const [mailSign,setMailSign] = useState("")
+  const [passSign,setPassSign] = useState("")
+  const [error,setError] = useState(false)
+
+  const handleSubmit = (e)=> {
+    e.preventDefault();
+    if(nombreSign === "" || apellido === "" || mailSign === "" || passSign === ""){
+      setError(true)
+      return
+    }
+    setError(false)
+    setUsuario([nombreSign,apellido,mailSign,passSign])
+  }
 
   return (
     <React.Fragment>
@@ -52,7 +68,7 @@ export default function CreateUna() {
       Create una!
       </Button>
       <Dialog 
-        
+        onSubmit={handleSubmit}
         open={open}
         onClose={handleClose}
         PaperProps={{
@@ -80,10 +96,12 @@ export default function CreateUna() {
           
         }}
       >
-        <DialogTitle id='titulo' >LOG IN</DialogTitle>
+        <DialogTitle id='titulo' >SIGN IN</DialogTitle>
         <DialogContent id='campos'>
         <TextField
             autoFocus
+            value={nombreSign}
+            onChange={(e) => setNombreSign(e.target.value)}
             required
             margin="dense"
             id="nombre"
@@ -98,7 +116,8 @@ export default function CreateUna() {
           />
           <TextField
             autoFocus
-            required
+            value={apellido}
+            onChange={(e) => setApellido(e.target.value)}
             margin="dense"
             id="apellido"
             name="apellido"
@@ -113,6 +132,8 @@ export default function CreateUna() {
           <TextField
             autoFocus
             required
+            value={mailSign}
+            onChange={(e) => setMailSign(e.target.value)}
             margin="dense"
             id="email"
             name="email"
@@ -129,6 +150,8 @@ export default function CreateUna() {
           <Input
             id="filled-adornment-password"
             type={showPassword ? 'text' : 'password'}
+            value={passSign}
+            onChange={(e) => setPassSign(e.target.value)}
             style={{backgroundColor: "#F3F3F322", borderRadius: "5px", color:"#F6F5E4", fontFamily: "Inder", paddingTop: "0px", fontWeight: "500" }}
             endAdornment={
               <InputAdornment position="end">

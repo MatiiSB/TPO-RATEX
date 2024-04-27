@@ -1,0 +1,14 @@
+.GridCategoria{
+    width: 100vh;
+    display: flex;
+    justify-content: space-between;
+    align-content: space-between;
+}
+
+.GridCategoria img{
+    width: 220px;
+    height: 325px;
+    border-radius: 5px;
+    box-shadow: 0 0 10px 3px   #c653e994;
+}
+
