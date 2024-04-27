@@ -80,7 +80,7 @@ export default function FormSignIn( {user,setUser} ) {
             alignItems: "center",
             borderRadius: "75px",
             width: "500px",
-            height: "590px",
+            height: "610px",
             padding: "40px",
             boxShadow: " 0 0 0 2px #62079F",
           } ,

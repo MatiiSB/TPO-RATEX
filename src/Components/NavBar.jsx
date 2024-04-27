@@ -4,9 +4,6 @@ import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom';
 import SearchBar from './SearchBar';
 import FormDialog from "./FormLogIn";
 import FormSignIn from "./FormSignIn";
-import { grey } from '@mui/material/colors';
-import Avatar from '@mui/material/Avatar';
-import { Stack } from "@mui/material";
 import "./AccountMenu.css"
 
 //-----TAILWIND---------//

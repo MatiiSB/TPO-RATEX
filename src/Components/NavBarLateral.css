@@ -10,14 +10,14 @@
 
 .hijos{
     width: 100%;
-    padding: 20px;   
+    padding: 5px 10px;   
 }
 
 .sidebar{
     background-color: #62079F;
     transition: all 0.2s;
     border-right: 2px solid rgba(199, 60, 241, 0.732);
-    box-shadow: 0 27px 25px 3px rgba(199, 60, 241, 0.732);
+    box-shadow: 0 27px 25px 1px rgba(199, 60, 241, 0.732);
 
 }
 .top_section{
@@ -47,8 +47,10 @@
 .active{
     background-color: #1f1d1d94;
     color: black;
+    
+    
 }
 
 .icon, .link_text{
-    font-size: 25px;
+    font-size: 22px;
 }
