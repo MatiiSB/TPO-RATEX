@@ -2,18 +2,51 @@
     display: flex;
     flex-direction: row;
     justify-content:space-between;
+    flex-wrap: wrap;
     align-items: center;
     padding: 3%;
     width: 100%;
-    border: 5px white solid ;}
+    border-radius: 15px 15px 0px 0px;
+    color: #F6F5E4;
+    background-image:linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.7)), url("/src/Components/Pelicula/fondos/fondo_dune2.jpg");
+    background-size:auto;
+    background-position: -90vh;
+   
+
+
+}
 .info{
     width: 40%;
     display: flex;
     flex-direction: column;
     justify-content: center;
-    gap: 30px;
+    gap: 50px;
     height: 100%;
 }
+
+
+.infoTitulo{
+    font-family: Catamaran;
+    color: #62079F;
+    font-size: 25px;
+    font-weight: 800;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    text-shadow: 0 0 25px  #c653e994;
+    padding-bottom: 50px;
+    text-decoration: underline;
+    text-underline-offset: 5px;
+}
+
+.info p{
+    font-family: catamaran;
+    text-align: start;
+    font-size: 18px;
+    font-weight: 400;
+    padding-bottom: 25px;
+}
+
+
 .valoracion{
     display: flex;
     flex-direction: row;
@@ -28,8 +61,28 @@
 }
 .botonera{
     display: flex;
-    justify-content: space-around;
+    justify-content: center;
+    
+    
 }
+
+#bts_categorias{
+    color: #F6F5E4;
+    background-color: #1a1919a6;
+    transition: 0.5s;
+    border-radius: 40px;
+    margin: 0 10px;
+    
+}
+
+#bts_categorias:hover{
+    background-color: #ffffff94;
+}
+
 .imgContainer img{
     width: 200px;
+}
+
+.PeliPortada{
+    box-shadow: 0 0 10px 7px #1a1919a6;
 }
