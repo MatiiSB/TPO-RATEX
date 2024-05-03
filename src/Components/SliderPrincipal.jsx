@@ -35,30 +35,30 @@ function SliderPrincipal() {
         <div className="slider" ref={sliderRef}>
             <div className="list">
                 <div className="item">
-                    <Principal titulo="AVATAR 2: EL CAMINO DEL AGUA" descripcion="Tan re locos van a sacar como 6 peliculas mas de estos aliens azuleeeees" tipo="Aventura" src={require("../Imagenes/Carrusel_Principal/avatar-2.jpg")} />
+                    <Principal titulo="AVATAR 2: EL CAMINO DEL AGUA" descripcion="Tan re locos van a sacar como 6 peliculas mas de estos aliens azuleeeees" tipo="Aventura" src="/Imagenes/Carrusel_Principal/avatar-2.jpg" />
                 </div>
                 <div className="item">
-                    <Principal titulo="KUNG FU PANDA 4" descripcion="LA peor pelicula del panda re ql, todo generico como la de megamente 2" tipo="Infantil" src={require("../Imagenes/Carrusel_Principal/kung.jpg")} />
+                    <Principal titulo="KUNG FU PANDA 4" descripcion="LA peor pelicula del panda re ql, todo generico como la de megamente 2" tipo="Infantil" src="/Imagenes/Carrusel_Principal/kung.jpg" />
                 </div>
                 <div className="item">
-                    <Principal titulo="GATO CON BOTAS 2" descripcion="Mejor que la 1, una obra maestra lo de antonio banderas haciendo de 60 voces y cobrando 50 palos verdes" tipo="Animada" src={require("../Imagenes/Carrusel_Principal/gato-2.jpg")} />
+                    <Principal titulo="GATO CON BOTAS 2" descripcion="Mejor que la 1, una obra maestra lo de antonio banderas haciendo de 60 voces y cobrando 50 palos verdes" tipo="Animada" src="/Imagenes/Carrusel_Principal/gato-2.jpg" />
                 </div>
                 <div className="item">
-                    <Principal titulo="DUNE PARTE 2" descripcion="La mejor pelicula del siglo sin lugar a dudas es lo mejor que vi en mis ultimos 25 años" tipo="Accion" src={require("../Imagenes/Carrusel_Principal/dune-parte2.jpg")} />
+                    <Principal titulo="DUNE PARTE 2" descripcion="La mejor pelicula del siglo sin lugar a dudas es lo mejor que vi en mis ultimos 25 años" tipo="Accion" src="/Imagenes/Carrusel_Principal/dune-parte2.jpg" />
                 </div>
             </div>
             <div className="thumbnail">
                 <div className="item">
-                    <ThumbnailItem im={require("../Imagenes/Carrusel_Principal/dune-parte2.jpg")} />
+                    <ThumbnailItem im="/Imagenes/Carrusel_Principal/dune-parte2.jpg" />
                 </div>
                 <div className="item">
-                    <ThumbnailItem im={require("../Imagenes/Carrusel_Principal/avatar-2.jpg")} />
+                    <ThumbnailItem im="/Imagenes/Carrusel_Principal/avatar-2.jpg" />
                 </div>
                 <div className="item">
-                    <ThumbnailItem im={require("../Imagenes/Carrusel_Principal/kung.jpg")} />
+                    <ThumbnailItem im="/Imagenes/Carrusel_Principal/kung.jpg" />
                 </div>
                 <div className="item">
-                    <ThumbnailItem im={require("../Imagenes/Carrusel_Principal/gato-2.jpg")} />
+                    <ThumbnailItem im="/Imagenes/Carrusel_Principal/gato-2.jpg" />
                 </div>
             </div>
             <div className="nextPrevArrows">

@@ -21,7 +21,7 @@ function MiFooter() {
       </div>
 
       <div className="copyContainer">
-        <img className="logoRatexF" src={require("../Imagenes/logoRatex.png")}></img>
+        <img className="logoRatexF" src="/Imagenes/logoRatex.png" alt="Logo"></img>
         <h4 className="copy">©Ratex - 2024</h4>
       </div>
 
@@ -34,7 +34,7 @@ function MiFooter() {
                 alt="Logo Whatsapp"
                 href=""
                 className="logoFooter"
-                src={require("../Imagenes/whatsapp.png")}>
+                src="/Imagenes/whatsapp.png">
 
                 </img>
             </a>
@@ -45,7 +45,7 @@ function MiFooter() {
                 alt="Logo Correo Electrónico"
                 href=""
                 className="logoFooter"
-                src={require("../Imagenes/email.png")}>
+                src="/Imagenes/email.png">
 
                 </img>
             </a>

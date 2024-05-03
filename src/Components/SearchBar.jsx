@@ -8,7 +8,7 @@ function SearchBar() {
     return (
             <div className="searchBarContainer">
                 <input  type="text" placeholder="Busca tu pelicula"/>
-                <button className="buscar"><img  alt="icono de búsqueda" src={require("../Imagenes/busqueda.png")}></img></button>
+                <button className="buscar"><img  alt="icono de búsqueda" src="/Imagenes/busqueda.png"></img></button>
                 
             </div>
     )

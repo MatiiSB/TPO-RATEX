@@ -29,7 +29,7 @@ function Datos(){
                     </div>
                     </div>
                 <div className="imgContainer">
-                <img className="PeliPortada" src={require("./dune-wall.jpg")} alt="img pelicula"></img>
+                <img className="PeliPortada" src="/Imagenes/Swiper/Dune_2.jpg" alt="img pelicula"></img>
                 </div>
             </div>
         </div>

@@ -8,6 +8,9 @@ import 'swiper/swiper-bundle.css';
 import { PiSelectionBackgroundBold } from "react-icons/pi";
 
 function Swipers() {
+
+
+
   return (
     <Swiper
     className="swipeContainer"
@@ -31,27 +34,10 @@ function Swipers() {
     onSlideChange={() => console.log('slide change')}
     onSwiper={(swiper) => console.log(swiper)}
   >
-    <SwiperSlide className="portada"> <div className="contenedor"><h4>{Peliculas[0].titulo}</h4> <p>{Peliculas[0].sinopsis}</p>
-    </div> <img className="imagenSwiper" src={require("../Imagenes/Swiper/One_Life.jpg")}></img></SwiperSlide>
-
-
-    <SwiperSlide className="portada"> <div className="contenedor"><h4>{Peliculas[1].titulo}</h4> <p>{Peliculas[1].sinopsis}</p>
-    </div> <img className="imagenSwiper" src={require("../Imagenes/Swiper/Batman_vs_Superman.jpg")}></img></SwiperSlide>
-
-    <SwiperSlide className="portada"> <div className="contenedor"><h4>{Peliculas[2].titulo}</h4> <p>{Peliculas[2].sinopsis}</p>
-    </div> <img className="imagenSwiper" src={require("../Imagenes/Swiper/Toy_Story1.jpg")}></img></SwiperSlide>
-
-    <SwiperSlide className="portada"> <div className="contenedor"><h4>{Peliculas[3].titulo}</h4> <p>{Peliculas[3].sinopsis}</p>
-    </div> <img className="imagenSwiper" src={require("../Imagenes/Swiper/Dune_2.jpg")}></img></SwiperSlide>
-
-    <SwiperSlide className="portada"> <div className="contenedor"><h4>{Peliculas[4].titulo}</h4> <p>{Peliculas[4].sinopsis}</p>
-    </div> <img className="imagenSwiper" src={require("../Imagenes/Swiper/Star_wars1.jpg")}></img></SwiperSlide>
-
-    <SwiperSlide className="portada"> <div className="contenedor"><h4>{Peliculas[5].titulo}</h4> <p>{Peliculas[5].sinopsis}</p>
-    </div> <img className="imagenSwiper" src={require("../Imagenes/Swiper/Godzilla_x_Kong.jpg")}></img></SwiperSlide>
-
-    <SwiperSlide className="portada"> <div className="contenedor"><h4>{Peliculas[0].titulo}</h4> <p>{Peliculas[0].sinopsis}</p>
-    </div> <img className="imagenSwiper" src={require("../Imagenes/Swiper/One_Life.jpg")}></img></SwiperSlide>
+    {Peliculas.map((item,index) => (
+      <SwiperSlide className="portada"> <div className="contenedor"><h4>{item.titulo}</h4> <p>{item.sinopsis}</p>
+    </div> <img className="imagenSwiper" src={item.portada} ></img></SwiperSlide>)
+    )}
     -
   </Swiper>
 

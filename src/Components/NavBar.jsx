@@ -21,7 +21,7 @@ export function NavBar() {
       <div className="navContainer">
         <div className="logoContainer">
           <Link className="logoLink" to="/">
-            <img alt="Logo Ratex" className="logoRatex" src={require("../Imagenes/logoRatex.png")} />
+            <img alt="Logo Ratex" className="logoRatex" src="/Imagenes/logoRatex.png" />
           </Link>
         </div>
         <SearchBar></SearchBar>
@@ -62,7 +62,7 @@ export function DropDownMenu({setUser} ) {
     <Menu as="div" className="relative inline-block text-left">
       <div>
         <Menu.Button className="AccountMenu">
-          <img src={require("../Imagenes/usuarioChico.png")} ></img>
+          <img src="/Imagenes/usuarioChico.png" ></img>
         </Menu.Button>
       </div>
 
