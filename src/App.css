@@ -13,3 +13,17 @@
   height: 100px;
 }
 
+.scrollButton{
+  background-color: #1F1D1D;
+  padding: 5px;
+  border-radius: 50px;
+  color: #F6F5E4;
+  transition: 0.3s ease;
+  
+}
+
+.scrollButton:hover{
+  background-color: #F6F5E4;
+  color: #1F1D1D;
+
+}

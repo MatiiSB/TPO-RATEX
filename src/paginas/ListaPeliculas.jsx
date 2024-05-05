@@ -63,6 +63,7 @@ const Peliculas = [
     {
         titulo: "One Life",
         portada: "./Imagenes/Swiper/One_Life.jpg",
+        sinopsis:"Ultima pelicula donde estos dos gigantes unen para derrotar a un enemigo muy poderoso",
         director: "James Hawes",
         actores: ["Anthony Hopkins","Helena Bonham","Johnny Flynn","Lena Olin","Romola Garai","Alex Sharp","Jonathan Pryce"],
         trailer: "trailer",

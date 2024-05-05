@@ -26,7 +26,7 @@
 }
 
 #campos{
-    margin: 15px 0
+    margin: 10px 0
 }
 
 #nombre{
@@ -48,18 +48,21 @@
     letter-spacing: 0,5px;
 }
 
+#passContainer{
+    margin-bottom: 0px;
+}
+
 #filled-adornment-password{
-    height: 40px;
+    height: 50px;
     letter-spacing: 0,5px;
     outline-width: 0em;
     padding-left: 15px;
-
     padding-bottom: 0px;
 
 }
 
 #contaLabel{
-    padding-top: 15px;
+    padding-top: 17px;
     font-family:sans-serif;
 }
 

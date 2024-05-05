@@ -5,6 +5,10 @@ import Rating from "./Rating"
 function Datos(){
     return(
         <div className="datos">
+            <div className="fondo">
+                <img src="/fondos/fondo_dune2.jpg" alt="Dune: Part Two"></img>
+            </div>
+            <section className="seccion">
             <div className="info">
                 <div>
                     <h1 className="infoTitulo">DUNE: PART TWO</h1>
@@ -32,6 +36,7 @@ function Datos(){
                 <img className="PeliPortada" src="/Imagenes/Swiper/Dune_2.jpg" alt="img pelicula"></img>
                 </div>
             </div>
+            </section>
         </div>
     )
 }
