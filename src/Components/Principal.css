@@ -27,9 +27,8 @@
     left: 40%;
     display: flex;
     align-items: center;
-    gap: 15px;
+    gap: 30px;
     flex-direction: column;
-    justify-content:space-between ;
     transform: translateX(-50%);
     padding-right: 30%;
     box-sizing: border-box;
@@ -73,8 +72,8 @@
 }
 .nextPrevArrows{
     position: absolute;
-    top: 40%;
-    right: 10%;
+    top: 60%;
+    right: 21%;
     z-index: 100;
     width: 300px;
     max-width: 30%;

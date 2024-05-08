@@ -1,0 +1,64 @@
+.container{
+    margin: auto;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+.movie{
+    box-shadow:  0 5px 10px rgba(0, 0, 0, 0.5);
+    width: 350px;
+    background-color: wheat;
+    margin: 1em;
+    border-radius: 5px;
+    box-sizing: border-box;
+    overflow: hidden;
+    position: relative;
+}
+.movie .poster{
+    width: 100%;
+    height: 250px;
+}
+
+.movie-details{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.movie-details .box{
+    width: 100%;
+    padding: 1rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+}
+
+.movie-details .title{
+    width: 160px;
+    text-align: center;
+}
+
+.movie-details .overview{
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    height: 100%;
+    background-color: violet;
+    opacity: 0.9;
+    color: red;
+    box-sizing: border-box;
+    padding: 1rem;
+    overflow-y: auto;
+    transition: all 0.4s ease-in-out;
+    transform:  translateY(101%);
+}
+
+.movie-details:hover .overview{
+    transform: translateY(0%);
+}
+.generos_container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}

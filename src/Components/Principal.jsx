@@ -11,7 +11,6 @@ return (
                     <div className="title">{props.titulo}</div>
                     <div className="type">{props.tipo}</div>
                     <div className="description">{props.descripcion}</div>
-                    <Button className="botonPrincipal" id="boton">VER MAS</Button>
                 </div>
         </>
     );
