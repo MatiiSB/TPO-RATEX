@@ -13,7 +13,6 @@ function Inicio() {
                     <Swipers></Swipers>
             </div>
             </>
-
     )
 };
 

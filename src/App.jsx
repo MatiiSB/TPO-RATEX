@@ -12,14 +12,13 @@ import Puntuacion from "./paginas/Puntuacion.jsx";
 import Series from "./paginas/Series.jsx";
 import Peliculas from "./paginas/Peliculas.jsx";
 import {Faqs} from "./Components/FAQs.jsx"
-import React, {useState} from "react";
+import React, {useState,useEffect} from "react";
 import { ScrollTop } from 'primereact/scrolltop';
 import Perfil from "./Components/Perfil.jsx";
 
 
 
 function App() {
-
 
   return (
     <BrowserRouter>
@@ -36,7 +35,7 @@ function App() {
             <Route path="/Puntuacion" element={<Puntuacion />} />
             <Route path="/Series" element={<Series />} />
             <Route path="/FAQs" element={<Faqs/>} />
-            <Route path="/RatexPrivacyPolicy" element={<RatexPrivacyPolicy />} />
+            <Route path="/RatexPrivacyPolicy" element={<RatexPrivacyPolicy/>}/>
           </Routes>
         </NavBarLateral>
         <ScrollTop className="scrollButton" />
