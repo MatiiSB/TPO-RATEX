@@ -9,8 +9,6 @@ function Elenco(){
             <section className="Galeria-actores">
             <div className="ActorInfoContainer"></div>
                 <img src="/elenco/Rebecca-Ferguson-Dune-Part-2.jpg" ></img>
-            
-                
                 <img src="/elenco/Josh-Brolin-Dune-Part-2.jpg" ></img>
                 <img src="/elenco/Zendaya-Dune-Part-2.jpg" ></img>
                 <img src="/elenco/Timothée-Chalamet-Dune-Part-2.jpg" ></img>
