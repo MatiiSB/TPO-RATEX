@@ -13,6 +13,8 @@ import Series from "./paginas/Series.jsx";
 import Peliculas from "./paginas/Peliculas.jsx";
 import {Faqs} from "./Components/FAQs.jsx"
 import React, {useState,useEffect} from "react";
+import { ScrollTop } from 'primereact/scrolltop';
+
 
 
 function App() {
@@ -34,6 +36,7 @@ function App() {
             <Route path="/RatexPrivacyPolicy" element={<RatexPrivacyPolicy/>}/>
           </Routes>
         </NavBarLateral>
+        <ScrollTop className="scrollButton" />
         <MiFooter />
       </div>
     </BrowserRouter>

@@ -135,8 +135,8 @@ const Accordion = styled((props) => (
 
 export function Faqs(){
     return (
-        <div className="fondo">
-        <h1 className="titulo">FAQs</h1>
+        <div className="fondoFaqs">
+        <h1 className="tituloFaqs">FAQs</h1>
             <CustomizedAccordions/>
         </div>
     )
