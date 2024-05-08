@@ -1,0 +1,40 @@
+.LayoutPerfilContainer{
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+}
+
+.PerfilContainer{
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    width: 90%;
+    height: 90vh;
+    border: 1px solid #62079F;
+    border-radius: 40px;
+    box-shadow: 0 0 20px   #c653e994;
+    gap: 50px;
+}
+
+.imagenPorDefectoPerfil{
+    height: 250px;
+    width: 250px;
+    border-radius: 100%;
+    border: 1px solid #62079F;
+    box-shadow: 0 0 20px   #c653e994;
+    border-spacing: 1000px;
+    margin: 25px;
+    padding: 0px;
+}
+
+.imagenSubidaPerfil{
+    height: 250px;
+    width: 250px;
+    border-radius: 100%;
+    border: 1px solid #62079F;
+    box-shadow: 0 0 20px   #c653e994;
+    margin: 25px;
+    padding: 0px;
+}

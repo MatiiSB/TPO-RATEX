@@ -79,10 +79,10 @@ export function DropDownMenu({setUser} ) {
           <div className="py-1">
             <Menu.Item id="itemMenu">
               {({ active }) => (
-                <a className={classNames(
+                <Link to="/Perfil" className={classNames(
                     active ? 'bg-gray-100 text-gray-900' : 'text-gray-700','block px-4 py-2 text-sm' )}>
                   Mi perfil
-                </a>
+                </Link>
               )}
             </Menu.Item>
             

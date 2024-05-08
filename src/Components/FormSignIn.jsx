@@ -169,7 +169,7 @@ export default function FormSignIn( {user,setUser} ) {
         <div className='checkboxContainer'>
         <label>Acepto las {<Link target='_blank' to="/RatexPrivacyPolicy"><strong>Politicas de Privacidad </strong></Link>}
         </label>
-        <Checkbox {...label} size='small' sx={{
+        <Checkbox {...label} required size='small' sx={{
           color: purple[800], '&.Mui-checked': {color: purple[600],},}}
       />
         </div>        
