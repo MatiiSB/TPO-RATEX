@@ -1,4 +1,4 @@
-.Inicio h2{
+.Inicio .TituloInicio{
     text-decoration: none;
     font-family: Catamaran;
     font-weight: 500;
@@ -8,5 +8,6 @@
     padding: 40px 40px;
     letter-spacing: 2px ;
     text-decoration: overline;
-    text-shadow: 0 0 20px   #c653e994;
+    
 }
+

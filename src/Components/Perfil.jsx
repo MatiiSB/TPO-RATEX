@@ -6,7 +6,9 @@ import "./Perfil.css";
 import { useRef, useState } from "react";
 
 
-export default function Perfil() {
+export default function Perfil({user, setUser}) {
+  
+  
 
   const inputRef = useRef(null);
   const [image, setImage] = useState("");
@@ -22,7 +24,6 @@ export default function Perfil() {
 
   return (
     <div className="LayoutPerfilContainer">
-      <h1 style={{ color: "#62079F" }}>Mi perfil</h1>
       <div className="PerfilContainer">
         <div onClick={handleImageClick}>
           {image ? (
@@ -37,9 +38,40 @@ export default function Perfil() {
             style={{ display: "none" }}
           ></input>
         </div>
-        <div > 
-          <fieldset style={{border:"1px solid red"}}> cuenta 
-          <legend >Mis datos</legend>
+        <h1 className="PerfilTitulo">Bienvenido!</h1>
+        <div className="DatosPerfil"> 
+          <fieldset className="FieldSetPerfil">
+          <legend className="LegendPerfil">Mis datos</legend>
+            <ul className="ulCampos">
+              <li className="liCampos">
+                <label>Nombre</label>
+                <input placeholder="Nombre" type="text"></input>
+              </li>
+              <li className="liCampos">
+                <label>Apellido</label>
+                <input  placeholder="Apellido" type="text"></input>
+              </li>
+            </ul>
+            <ul className="ulCampos">
+              <li className="liCampos">
+                <label>Mail</label>
+                <input  placeholder="Mail" type="email"></input>
+              </li>
+              <li className="liCampos">
+              <label>Contraseña</label>
+                <input placeholder="Nueva Contraseña" type="text"></input>
+              </li>
+            </ul>
+            <ul  className="ulCampos">
+              <li className="liCampos">
+                <label>Pais</label>
+                <input placeholder="Pais" type=""></input>
+              </li>
+              <li className="liCampos">
+                <label>Edad</label>
+                <input placeholder="Edad" type="number" ></input>
+              </li>
+            </ul>
           </fieldset>
         </div>
       </div>

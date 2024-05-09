@@ -19,8 +19,13 @@ import VisibilityOff from '@mui/icons-material/VisibilityOff';
 import "./FormLogIn.css"
 import FormSignIn from './FormSignIn';
 
+
+//--------------------------------------LOCAL STORAGE-------
+
+
 export default function FormDialog({setUser}) {
   const [open, setOpen] = React.useState(false);
+
 
   const handleClickOpen = () => {
     setOpen(true);
@@ -57,8 +62,6 @@ export default function FormDialog({setUser}) {
 
   }
 
-  //--------Para el create una---------//
-  const [usuario, setUsuario] = useState([])
 
   return (
     <React.Fragment>

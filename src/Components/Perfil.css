@@ -38,3 +38,45 @@
     margin: 25px;
     padding: 0px;
 }
+
+.PerfilTitulo{
+        font-family: Catamaran;
+        font-size: 70px;
+        font-weight: 600;
+        color: #62079F;
+        letter-spacing: 3px;
+        text-decoration: overline;
+        text-transform: uppercase;
+    }
+
+.DatosPerfil{
+    width: 60%;
+}
+
+.FieldSetPerfil{
+    border: 5px solid #62079F;
+    border-radius: 5px ;
+}
+
+.LegendPerfil{
+    font-family: Catamaran;
+    font-weight: 500;
+    letter-spacing: 3px;
+    font-size: 40px;
+}
+
+.ulCampos{
+    display: flex;
+    justify-content: space-around;
+    margin: 50px;
+}
+
+.liCampos{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 5px;
+    font-family: Catamaran;
+    letter-spacing: 3px;
+    font-size: 25px;
+}

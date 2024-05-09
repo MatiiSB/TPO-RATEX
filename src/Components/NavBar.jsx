@@ -33,7 +33,7 @@ export function NavBar() {
                 <li><FormDialog setUser={setUser} /></li>
                 <li><FormSignIn setUser={setUser}  /></li>
               </ul>
-            : <DropDownMenu  setUser={setUser} />
+            : <DropDownMenu  user={user} setUser={setUser} />
               
           }  
           
@@ -42,12 +42,6 @@ export function NavBar() {
   );
 }
 
-/* 
-<Stack  setUser={setUser} >
-<Avatar id="avatar" sx={{ bgcolor: grey[900] }} src="/broken-image.jpg">
-</Avatar>
-</Stack>
-*/
 
 
 function classNames(...classes) {
@@ -57,6 +51,7 @@ function classNames(...classes) {
 export function DropDownMenu({setUser} ) {
 
   const handleLogOut = () => {setUser([])}
+  
 
   return (
     <Menu as="div" className="relative inline-block text-left">
