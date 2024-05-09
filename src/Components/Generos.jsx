@@ -7,7 +7,7 @@ const Generos = ({ info2, onClick }) => {
         onClick(info2.id);
     };
     return (
-        <Button onClick={handleClick}>{info2.name}</Button>
+        <Button id='boton' onClick={handleClick}>{info2.name}</Button>
     );
 };
 

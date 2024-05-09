@@ -3,17 +3,23 @@ import "./Filtros.css";
 import Card from "../Components/Card";
 import Generos from "../Components/Generos";
 import { Button } from "@mui/material";
+import { Link, useNavigate} from "react-router-dom";
+
 const API_KEY = 'api_key=93648cb92189cb6216b357ed5dfdf548';
 const BASE_URL = 'https://api.themoviedb.org/3';
 let url = `${BASE_URL}/discover/movie?sort_by=popularity.desc&${API_KEY}`;
 const generos = `${BASE_URL}/genre/movie/list?language=es&${API_KEY}`;
 
+
 function Filtros() {
+    const navigate = useNavigate();
     const [movies, setMovies] = useState([]);
     const [genres, setGenres] = useState(() => {
-        return [];
+    return [];
     });
-
+    const toComponentB=(movie)=>{
+        navigate(`/Peliculas`,{state:{objeto:movie}});
+    }
     useEffect(() => {
         fetch(url)
             .then(res => {
@@ -59,12 +65,15 @@ function Filtros() {
                 {genres.map((genre, index, url) => (
                     <Generos info2={genre} key2={index} onClick={handleGenreClick}/>
                 ))}
-            <Button onClick={resetFilter}>Borrar Filtro</Button>
+            <Button id='boton' onClick={resetFilter}>Borrar Filtro</Button>
             </div>
             {movies.length === 0 ? (
                 <p className="notFound">Películas no encontradas.</p>
             ) : (
-                movies.map((movie, index) => <Card info={movie} key={index} />
+                movies.map((movie, index) =>
+                <>
+                    <a onClick={()=>{toComponentB(movie)}}><Card info={movie} key={index} /></a>
+                </>
                 ))}
         </div>
     );

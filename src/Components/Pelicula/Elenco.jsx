@@ -15,9 +15,7 @@ function Elenco(){
                 <img src="/elenco/Florence-Pugh-Dune-Part-2.jpg" ></img>
                 <img src="/elenco/Austin-Butler-Dune-Part-2.jpg" ></img>
             </section>
-        </div>
-
-        
+        </div>  
     )
 }
 
