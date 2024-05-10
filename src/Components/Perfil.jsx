@@ -45,31 +45,27 @@ export default function Perfil({user, setUser}) {
             <ul className="ulCampos">
               <li className="liCampos">
                 <label>Nombre</label>
-                <input placeholder={nombre} type="text"></input>
+                <input className="Campos" placeholder="Jhon" type="text"></input>
               </li>
               <li className="liCampos">
                 <label>Apellido</label>
-                <input  placeholder={apellido} type="text"></input>
+                <input  placeholder="Doe" type="text"></input>
               </li>
             </ul>
             <ul className="ulCampos">
               <li className="liCampos">
                 <label>Mail</label>
-                <input  placeholder={mail} type="email"></input>
+                <input  placeholder="Jhon_Doe@mail.com" type="email"></input>
               </li>
               <li className="liCampos">
-              <label>Contraseña</label>
-                <input placeholder={clave} type="text"></input>
+                <label>Edad</label>
+                <input placeholder="Edad" type="number" ></input>
               </li>
             </ul>
             <ul  className="ulCampos">
               <li className="liCampos">
                 <label>Pais</label>
                 <input placeholder="Pais" type=""></input>
-              </li>
-              <li className="liCampos">
-                <label>Edad</label>
-                <input placeholder="Edad" type="number" ></input>
               </li>
             </ul>
           </fieldset>

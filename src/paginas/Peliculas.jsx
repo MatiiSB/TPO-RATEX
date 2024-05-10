@@ -1,21 +1,23 @@
-import React, {useEffect,useState}from "react";
-import { useLocation } from "react-router-dom";
+import React, { useEffect, useState } from "react";
+import "./Filtros.css";
+import Card from "../Components/Card";
+import Generos from "../Components/Generos";
 import { Button } from "@mui/material";
-import Rating from "@mui/material";
-import "../Components/Pelicula/InfoPelicula.css";
-import "../Components/Pelicula/Elenco.css";
-import ImdPeli from "./ImdPeli";
-function Peliculas(props) {
-    // Utilizamos useLocation para acceder al estado de la ubicación
-    const location = useLocation();
-    const [movieDetalles,setMovieDetelles] = useState({});
-    // Utilizamos useParams para obtener los parámetros de la URL
-    const [images, setImages] = useState([]);
-    const objeto = location.state?.objeto
-    console.log("hola objeto", objeto)
-    const API_KEY = 'api_key=93648cb92189cb6216b357ed5dfdf548';
-    let img_path = "https://image.tmdb.org/t/p/w500"
-    let url = `https://api.themoviedb.org/3/movie/940721/images&${API_KEY}`
+import { Link, useNavigate} from "react-router-dom";
+
+const API_KEY = 'api_key=93648cb92189cb6216b357ed5dfdf548';
+const BASE_URL = 'https://api.themoviedb.org/3';
+let url = `${BASE_URL}/discover/movie?sort_by=popularity.desc&${API_KEY}`;
+const generos = `${BASE_URL}/genre/movie/list?language=es&${API_KEY}`;
+
+
+function Peliculas() {
+    const navigate = useNavigate();
+    const [movies, setMovies] = useState([]);
+    const [genres, setGenres] = useState(() => {
+    return [];
+    });
+   
     useEffect(() => {
         fetch(url)
             .then(res => {
@@ -25,63 +27,54 @@ function Peliculas(props) {
                 return res.json();
             })
             .then(data => {
-                setImages(data.results);
+                setMovies(data.results);
             })
             .catch(error => {
                 console.error('Error de red:', error);
-                setImages([]);
+                setMovies([]);
             });
-    }, [images]);
-
+    }, [movies]);
 
     useEffect(() => {
-        if(location.state?.movieDetalles){
-            setMovieDetelles(location.state.movieDetalles)
-        }
-    }, [location])
+        fetch(generos)
+            .then(res => {
+                if (!res.ok) {
+                    throw new Error('Error al obtener los géneros.');
+                }
+                return res.json();
+            })
+            .then(data => {
+                setGenres(data.genres);
+            })
+            .catch(error => {
+                console.error('Error de red:', error);
+                setGenres([]);
+            });
+    }, []);
+    const handleGenreClick = (genreId) => {
+        url= `https://api.themoviedb.org/3/discover/movie?&sort_by=popularity.desc&with_genres=` + genreId + `&${API_KEY}`
+        };
+    const resetFilter = () =>{
+        url = `${BASE_URL}/discover/movie?sort_by=popularity.desc&${API_KEY}`;
+    }
     return (
-        <div>
-            <div className="datos">
-            <div className="fondo">
-                <img alt="Portada"></img>
-            </div>
-            <section className="seccion">
-            <div className="info">
-                <div>
-                    <h1 className="infoTitulo">{movieDetalles.title}</h1>
-                    <p>{movieDetalles.overview}</p>
-                    <h2><span style={{textDecoration:"underline", textUnderlineOffset:"3px"}}>Dirección:</span> Denis Villeneuve</h2>
-                </div>
-                <div className="botonera">
-                    <Button id="bts_categorias">{movieDetalles.genre_ids}</Button>
-                </div>
-            </div>
-            <div className="valoracion">
-                <div>
-                    <div>
-                        <div>Compartir</div>
-                        <Button id="bts_categorias">Mi lista +</Button>
-                        <div>
-                            <Button id="bts_categorias" >Play</Button>
-                        </div>
-                    </div>
-                    </div>
-                <div className="imgContainer">
-                <img className="PeliPortada" src={img_path + movieDetalles.poster_path} alt="img pelicula"></img>
-                </div>
-            </div>
-            </section>
-        </div>
-        <div className="Elenco-Layout">
-            <h2 className="Elenco-titulo">ELENCO</h2>
-            <section className="Galeria-actores">
-            <div className="ActorInfoContainer"></div>
-                {images.map((image,index)=>(
-                    <ImdPeli info={image} key={index}></ImdPeli>
+        <div className="container">
+            <div className="container">
+                {genres.map((genre, index, url) => (
+                    <Generos info2={genre} key2={index} onClick={handleGenreClick}/>
                 ))}
-            </section>
-        </div>  
+            <Button id='boton' onClick={resetFilter}>Borrar Filtro</Button>
+            </div>
+            {movies.length === 0 ? (
+                <p className="notFound">Películas no encontradas.</p>
+            ) : (
+                movies.map((movie, index) =>
+                <>
+                   <Link key={movie.id} to={`/Datos/${movie.original_title}`}  state={{movieDetalles:movie}} ><Card info={movie} key={index} /></Link>
+                </>
+                ))}
         </div>
     );
 }
+
 export default Peliculas;
