@@ -21,18 +21,19 @@ function App() {
   const [watchEnviar, setWatchEnviar] = useState([]);
 
   const updateWatchlist = (watch) => {
-    setWatchEnviar([...watchEnviar, watch]);
-  };
-  const quitarElementoWatchlist = () => {
-    // Lógica para quitar un elemento de la watchlist
-    if (watchEnviar.length > 0) {
-      setWatchEnviar(watchEnviar.slice(0, watchEnviar.length - 1));
+    // Verificar si la película ya está en la lista
+    const estaEnLista = watchEnviar.some(item => item.id === watch.id);
+    if (!estaEnLista) {
+        setWatchEnviar([...watchEnviar, watch]);
+    } else {
+        alert("La película ya está en la lista de seguimiento.");
     }
   };
-
-  const agregarElementoWatchlist = (elemento) => {
-    setWatchEnviar([...watchEnviar, elemento]);
+  const quitarElementoWatchlist = (index) => {
+    const nuevaLista = watchEnviar.filter((_, i) => i !== index);
+    setWatchEnviar(nuevaLista);
   };
+
 
   return (
     <DataProvider>
@@ -45,7 +46,7 @@ function App() {
               <Route path="/" element={<Inicio />} />
               <Route
                 path="/WatchList"
-                element={<WatchList porver={watchEnviar} agregarElemento={agregarElementoWatchlist} quitarElemento={quitarElementoWatchlist}  />}
+                element={<WatchList porver={watchEnviar} quitarElemento={quitarElementoWatchlist}  />}
               />
               <Route path="/Categorias" element={<Categorias />} />
               <Route

@@ -60,7 +60,6 @@ function Swipers() {
           "--swiper-pagination-bottom": "8px",
 
         }}
-      
     onSlideChange={() => console.log('slide change')}
     onSwiper={(swiper) => console.log(swiper)}
   >
