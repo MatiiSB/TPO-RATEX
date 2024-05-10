@@ -1,6 +1,6 @@
 // En Card.jsx
+import { Button } from "@mui/material";
 import React from "react";
-
 const Card = ({ info }) => {
     let img_path = "https://image.tmdb.org/t/p/w500";
 

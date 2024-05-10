@@ -4,7 +4,8 @@ import Card from "../Components/Card";
 import Generos from "../Components/Generos";
 import { Button } from "@mui/material";
 import { Link, useNavigate} from "react-router-dom";
-
+import SearchBar from "../Components/SearchBar";
+import {CiHeart} from "react-icons/ci"
 const API_KEY = 'api_key=93648cb92189cb6216b357ed5dfdf548';
 const BASE_URL = 'https://api.themoviedb.org/3';
 let url = `${BASE_URL}/discover/movie?sort_by=popularity.desc&${API_KEY}`;
@@ -12,12 +13,11 @@ const generos = `${BASE_URL}/genre/movie/list?language=es&${API_KEY}`;
 
 
 function Peliculas() {
-    const navigate = useNavigate();
     const [movies, setMovies] = useState([]);
     const [genres, setGenres] = useState(() => {
     return [];
     });
-   
+
     useEffect(() => {
         fetch(url)
             .then(res => {
@@ -57,8 +57,13 @@ function Peliculas() {
     const resetFilter = () =>{
         url = `${BASE_URL}/discover/movie?sort_by=popularity.desc&${API_KEY}`;
     }
+    const updateUrl = (newUrl) => {
+        url = newUrl;
+    };
+
     return (
         <div className="container">
+                <SearchBar updateUrl={updateUrl}></SearchBar>
             <div className="container">
                 {genres.map((genre, index, url) => (
                     <Generos info2={genre} key2={index} onClick={handleGenreClick}/>
@@ -70,7 +75,7 @@ function Peliculas() {
             ) : (
                 movies.map((movie, index) =>
                 <>
-                   <Link key={movie.id} to={`/Datos/${movie.original_title}`}  state={{movieDetalles:movie}} ><Card info={movie} key={index} /></Link>
+                <Link key={movie.id} to={`/Datos/${movie.original_title}`} state={{movieDetalles:movie}} ><Card info={movie} key={index} /></Link>
                 </>
                 ))}
         </div>
