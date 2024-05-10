@@ -11,7 +11,9 @@
     position: relative;
     overflow: hidden;
 }
-
+.datos img{
+    width: 100%;
+}
 
 .fondo{
     width: 100%;

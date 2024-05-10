@@ -1,7 +1,6 @@
 import React, {useState} from "react";
 import "./NavBarStyles.css";
 import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom';
-import SearchBar from './SearchBar';
 import FormDialog from "./FormLogIn";
 import FormSignIn from "./FormSignIn";
 import "./AccountMenu.css"
@@ -24,7 +23,6 @@ export function NavBar() {
             <img alt="Logo Ratex" className="logoRatex" src="/Imagenes/logoRatex.png" />
           </Link>
         </div>
-        <SearchBar></SearchBar>
         <div className="btnsContainer">
           
           {
