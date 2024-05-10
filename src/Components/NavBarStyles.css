@@ -19,12 +19,12 @@
 }
 
 .logoContainer{
-    width: 10%;
+    
 
 }
 
 .logoLink { 
-    height: 12vh;
+    
 }
 .btnsContainer{
 
@@ -53,4 +53,43 @@
 
 #avatar:hover{
     filter: drop-shadow(0  0  10px #F6F5E4);
+}
+
+
+/*RESPONSIVE*/
+
+@media screen and (max-width:1040px){
+    
+    .logoRatex{
+        width: 80px;
+    }
+
+    .btnsLista li{
+        margin-left: 10px;
+    }
+
+    .btnsItems {
+        font-family: Catamaran;
+        font-weight: 500;
+        font-size: 10px;
+    }
+
+
+}
+
+
+@media screen and (max-width:845px){
+    .logoRatex{
+        width: 70px;
+    }
+
+    .btnsLista li{
+        margin-left: 5px;
+    }
+
+    .btnsItems {
+        font-family: Catamaran;
+        font-weight: 500;
+        font-size: 10px;
+    }
 }

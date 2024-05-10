@@ -24,11 +24,6 @@ function NavBarLateral({ children }) {
       Icon: <FaFilm/>,
     },
     {
-      path: "/Categorias",
-      name: "Categorias",
-      Icon: <FaThLarge />,
-    },
-    {
       path: "/WatchList",
       name: "WatchList",
       Icon: <FaUser />,

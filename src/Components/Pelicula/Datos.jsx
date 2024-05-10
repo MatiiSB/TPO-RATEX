@@ -13,7 +13,7 @@ import "./Elenco.css"
 
 const API_KEY = "api_key=93648cb92189cb6216b357ed5dfdf548";
 
-function Datos({movieID}) {
+function Datos() {
   const location = useLocation();
   const [movieDetalles, setMovieDetelles] = useState({});
   const [videos, setVideos] = useState([]);
@@ -26,7 +26,7 @@ function Datos({movieID}) {
       try {
         // Obtener la información del elenco de la película
         const response = await fetch(
-          `https://api.themoviedb.org/3/movie/${movieID}/credits?api_key=93648cb92189cb6216b357ed5dfdf548`
+          `https://api.themoviedb.org/3/movie/${movieDetalles.id}/credits?api_key=93648cb92189cb6216b357ed5dfdf548`
         );
         const data = await response.json();
 
@@ -35,6 +35,7 @@ function Datos({movieID}) {
           (cast) => cast.profile_path !== null
         );
         const primerosCinco = filteredElenco.slice(0, 5);
+        console.log(primerosCinco)
 
         // Para cada miembro del elenco, obtener su imagen y nombre
         const promises = primerosCinco.map(async (actor) => {
@@ -51,14 +52,16 @@ function Datos({movieID}) {
 
         // Esperar todas las promesas para obtener las imágenes y nombres del elenco
         const elencoCompleto = await Promise.all(promises);
+        
         setElenco(elencoCompleto);
+        console.log(elenco)
       } catch (error) {
         console.error("Error al cargar el elenco:", error);
       }
     };
 
     fetchElenco();
-  }, [movieID]);
+  }, [movieDetalles.id, elenco]);
 
   useEffect(() => {
     fetch(url)
@@ -129,7 +132,7 @@ function Datos({movieID}) {
               </h2>
             </div>
             <div className="botonera">
-              <Button id="bts_categorias">{movieDetalles.genre_ids}</Button>
+              <Button id="bts_categorias">Acción</Button>
             </div>
           </div>
           <div className="valoracion">
@@ -138,7 +141,7 @@ function Datos({movieID}) {
                 <div>
                   <Rating />
                 </div>
-                <Button id="bts_categorias">Mi lista +</Button>
+                
                 <div>
                   <Button id="bts_categorias">Play</Button>
                 </div>
@@ -155,18 +158,7 @@ function Datos({movieID}) {
         </section>
       </div>
       {/*ELENCO */}
-      <div className="Elenco-Layout">
-            <h2 className="Elenco-titulo">ELENCO</h2>
-                <section className="Galeria-actores">
-                    <div className="ActorInfoContainer"></div>
-                    <img src="/elenco/Rebecca-Ferguson-Dune-Part-2.jpg" ></img>
-                    <img src="/elenco/Josh-Brolin-Dune-Part-2.jpg" ></img>
-                    <img src="/elenco/Zendaya-Dune-Part-2.jpg" ></img>
-                    <img src="/elenco/Timothée-Chalamet-Dune-Part-2.jpg" ></img>
-                    <img src="/elenco/Florence-Pugh-Dune-Part-2.jpg" ></img>
-                    <img src="/elenco/Austin-Butler-Dune-Part-2.jpg" ></img>
-            </section>
-        </div>  
+        <Elenco movieID={movieDetalles.id} />
 
       <div
         style={{

@@ -9,17 +9,47 @@ import { PiSelectionBackgroundBold } from "react-icons/pi";
 
 function Swipers() {
 
+  const breakpoints = {
+    // Cuando el ancho de la ventana es igual o mayor a 640px
+    640: {
+      slidesPerView: 2,
+      spaceBetween: 20,
+    },
+    // Cuando el ancho de la ventana es igual o mayor a 768px
+    768: {
+      slidesPerView: 3,
+      spaceBetween: 30,
+    },
+    // Cuando el ancho de la ventana es igual o mayor a 1024px
+    1024: {
+      slidesPerView: 5,
+      spaceBetween: 50,
+    },};
 
 
   return (
     <Swiper
     className="swipeContainer"
     modules={[Navigation, Pagination, Scrollbar, A11y, Keyboard]}
-    spaceBetween={50}
-    slidesPerView={5}
+    spaceBetween={10}
+    slidesPerView={1}
     loop="true"
     navigation={{clickable: true }}
     pagination={{ clickable: true, }}
+    breakpoints={{
+          640: {
+            slidesPerView: 2,
+            spaceBetween: 20,
+          },
+          768: {
+            slidesPerView: 4,
+            spaceBetween: 40,
+          },
+          1024: {
+            slidesPerView: 5,
+            spaceBetween: 50,
+          },
+        }}
     keyboard={{
           enabled: true,
         }}
