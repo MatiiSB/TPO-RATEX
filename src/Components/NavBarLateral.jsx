@@ -29,8 +29,8 @@ function NavBarLateral({ children }) {
       Icon: <FaThLarge />,
     },
     {
-      path: "/Actores",
-      name: "Actores",
+      path: "/WatchList",
+      name: "WatchList",
       Icon: <FaUser />,
     },
   ];

@@ -10,14 +10,12 @@ const API_KEY = 'api_key=93648cb92189cb6216b357ed5dfdf548';
 const BASE_URL = 'https://api.themoviedb.org/3';
 let url = `${BASE_URL}/discover/movie?sort_by=popularity.desc&${API_KEY}`;
 const generos = `${BASE_URL}/genre/movie/list?language=es&${API_KEY}`;
-
-
-function Peliculas() {
+function Peliculas(props) {
     const [movies, setMovies] = useState([]);
     const [genres, setGenres] = useState(() => {
     return [];
     });
-
+    
     useEffect(() => {
         fetch(url)
             .then(res => {
@@ -55,12 +53,15 @@ function Peliculas() {
         url= `https://api.themoviedb.org/3/discover/movie?&sort_by=popularity.desc&with_genres=` + genreId + `&${API_KEY}`
         };
     const resetFilter = () =>{
+        
         url = `${BASE_URL}/discover/movie?sort_by=popularity.desc&${API_KEY}`;
     }
     const updateUrl = (newUrl) => {
         url = newUrl;
     };
-
+    const sendWatchlistData = (watchData)=>{
+        props.updateWatchlist(watchData);
+    }
     return (
         <div className="container">
                 <SearchBar updateUrl={updateUrl}></SearchBar>
@@ -74,9 +75,10 @@ function Peliculas() {
                 <p className="notFound">Películas no encontradas.</p>
             ) : (
                 movies.map((movie, index) =>
-                <>
-                <Link key={movie.id} to={`/Datos/${movie.original_title}`} state={{movieDetalles:movie}} ><Card info={movie} key={index} /></Link>
-                </>
+                <div>
+                <Link key={movie.id} to={`/Datos/${movie.original_title}`} state={{movieDetalles:movie}}><Card info={movie} key={index} /></Link>
+                <Button onClick={() => sendWatchlistData(movie)}><CiHeart></CiHeart></Button>
+                </div>
                 ))}
         </div>
     );
