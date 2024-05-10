@@ -17,9 +17,7 @@ function Filtros() {
     const [genres, setGenres] = useState(() => {
     return [];
     });
-    const toComponentB=(movie)=>{
-        navigate(`/Peliculas`,{state:{objeto:movie}});
-    }
+   
     useEffect(() => {
         fetch(url)
             .then(res => {
@@ -72,7 +70,7 @@ function Filtros() {
             ) : (
                 movies.map((movie, index) =>
                 <>
-                    <a onClick={()=>{toComponentB(movie)}}><Card info={movie} key={index} /></a>
+                   <Link key={movie.id} to={`/Datos/${movie.original_title}`}  state={{movieDetalles:movie}} ><Card info={movie} key={index} /></Link>
                 </>
                 ))}
         </div>

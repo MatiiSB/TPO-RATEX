@@ -1,14 +1,14 @@
 import * as React from "react";
 import { styled } from "@mui/material/styles";
 import Button from "@mui/material/Button";
-import CloudUploadIcon from "@mui/icons-material/CloudUpload";
 import "./Perfil.css";
-import { useRef, useState } from "react";
+import { useRef, useState, useContext } from "react";
+import { Contexto } from "./Contexto";
 
 
 export default function Perfil({user, setUser}) {
   
-  
+  const {nombre, setNombre, apellido, setApellido, clave, setClave, mail, setMail} = useContext(Contexto)
 
   const inputRef = useRef(null);
   const [image, setImage] = useState("");
@@ -45,21 +45,21 @@ export default function Perfil({user, setUser}) {
             <ul className="ulCampos">
               <li className="liCampos">
                 <label>Nombre</label>
-                <input placeholder="Nombre" type="text"></input>
+                <input placeholder={nombre} type="text"></input>
               </li>
               <li className="liCampos">
                 <label>Apellido</label>
-                <input  placeholder="Apellido" type="text"></input>
+                <input  placeholder={apellido} type="text"></input>
               </li>
             </ul>
             <ul className="ulCampos">
               <li className="liCampos">
                 <label>Mail</label>
-                <input  placeholder="Mail" type="email"></input>
+                <input  placeholder={mail} type="email"></input>
               </li>
               <li className="liCampos">
               <label>Contraseña</label>
-                <input placeholder="Nueva Contraseña" type="text"></input>
+                <input placeholder={clave} type="text"></input>
               </li>
             </ul>
             <ul  className="ulCampos">

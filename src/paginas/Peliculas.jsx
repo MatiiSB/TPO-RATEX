@@ -5,9 +5,10 @@ import Rating from "@mui/material";
 import "../Components/Pelicula/InfoPelicula.css";
 import "../Components/Pelicula/Elenco.css";
 import ImdPeli from "./ImdPeli";
-function Peliculas() {
+function Peliculas(props) {
     // Utilizamos useLocation para acceder al estado de la ubicación
     const location = useLocation();
+    const [movieDetalles,setMovieDetelles] = useState({});
     // Utilizamos useParams para obtener los parámetros de la URL
     const [images, setImages] = useState([]);
     const objeto = location.state?.objeto
@@ -31,6 +32,13 @@ function Peliculas() {
                 setImages([]);
             });
     }, [images]);
+
+
+    useEffect(() => {
+        if(location.state?.movieDetalles){
+            setMovieDetelles(location.state.movieDetalles)
+        }
+    }, [location])
     return (
         <div>
             <div className="datos">
@@ -40,12 +48,12 @@ function Peliculas() {
             <section className="seccion">
             <div className="info">
                 <div>
-                    <h1 className="infoTitulo">{objeto.title}</h1>
-                    <p>{objeto.overview}</p>
+                    <h1 className="infoTitulo">{movieDetalles.title}</h1>
+                    <p>{movieDetalles.overview}</p>
                     <h2><span style={{textDecoration:"underline", textUnderlineOffset:"3px"}}>Dirección:</span> Denis Villeneuve</h2>
                 </div>
                 <div className="botonera">
-                    <Button id="bts_categorias">{objeto.genre_ids}</Button>
+                    <Button id="bts_categorias">{movieDetalles.genre_ids}</Button>
                 </div>
             </div>
             <div className="valoracion">
@@ -59,7 +67,7 @@ function Peliculas() {
                     </div>
                     </div>
                 <div className="imgContainer">
-                <img className="PeliPortada" src={img_path + objeto.poster_path} alt="img pelicula"></img>
+                <img className="PeliPortada" src={img_path + movieDetalles.poster_path} alt="img pelicula"></img>
                 </div>
             </div>
             </section>

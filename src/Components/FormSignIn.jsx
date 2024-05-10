@@ -6,7 +6,8 @@ import DialogActions from '@mui/material/DialogActions';
 import DialogContent from '@mui/material/DialogContent';
 import DialogTitle from '@mui/material/DialogTitle';
 import Checkbox from '@mui/material/Checkbox';
-import { useState } from 'react';
+import { useState, useEffect, createContext, useContext} from 'react'
+import {Contexto} from './Contexto'; 
 
 //-----------------------------------
 
@@ -47,20 +48,22 @@ export default function FormSignIn( {user,setUser} ) {
 
   //----------constantes cambio de nav-------------------//
   const [nombreSign,setNombreSign] = useState("")
-  const [apellido,setApellido] = useState("")
+  const [apellidoSign,setApellidoSign] = useState("")
   const [mailSign,setMailSign] = useState("")
   const [passSign,setPassSign] = useState("")
   const [error,setError] = useState(false)
 
   const handleSubmit = (e)=> {
     e.preventDefault();
-    if(nombreSign === "" || apellido === "" || mailSign === "" || passSign === ""){
+    if(nombreSign === "" || apellidoSign === "" || mailSign === "" || passSign === ""){
       setError(true)
       return
     }
     setError(false)
-    setUser([nombreSign,apellido,mailSign,passSign])
+    setUser([nombreSign,apellidoSign,mailSign,passSign])
   }
+
+  const {nombre, setNombre, apellido, setApellido, clave, setClave, mail, setMail} = useContext(Contexto)
 
   return (
     <React.Fragment>
@@ -100,8 +103,8 @@ export default function FormSignIn( {user,setUser} ) {
         <DialogContent id='campos'>
         <TextField
             autoFocus
-            value={nombreSign}
-            onChange={(e) => setNombreSign(e.target.value)}
+            value={nombre}
+            onChange={(e) => setNombre(e.target.value)}
             required
             margin="dense"
             id="nombre"
@@ -132,8 +135,8 @@ export default function FormSignIn( {user,setUser} ) {
           <TextField
             autoFocus
             required
-            value={mailSign}
-            onChange={(e) => setMailSign(e.target.value)}
+            value={mail}
+            onChange={(e) => setMail(e.target.value)}
             margin="dense"
             id="email"
             name="email"

@@ -5,7 +5,7 @@ import Dialog from '@mui/material/Dialog';
 import DialogActions from '@mui/material/DialogActions';
 import DialogContent from '@mui/material/DialogContent';
 import DialogTitle from '@mui/material/DialogTitle';
-import { useState } from 'react';
+import { useState, useEffect, createContext, useContext} from 'react'
 
 //-----------------------------------
 
@@ -21,7 +21,7 @@ import FormSignIn from './FormSignIn';
 
 
 //--------------------------------------LOCAL STORAGE-------
-
+import {Contexto} from './Contexto'; 
 
 export default function FormDialog({setUser}) {
   const [open, setOpen] = React.useState(false);
@@ -62,7 +62,7 @@ export default function FormDialog({setUser}) {
 
   }
 
-
+  
   return (
     <React.Fragment>
       <Button id='boton' onClick={handleClickOpen}>
