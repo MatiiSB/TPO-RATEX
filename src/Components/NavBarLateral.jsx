@@ -24,11 +24,6 @@ function NavBarLateral({ children }) {
       Icon: <FaFilm/>,
     },
     {
-      path: "/Series",
-      name: "Series",
-      Icon: <FaTv />,
-    },
-    {
       path: "/Categorias",
       name: "Categorias",
       Icon: <FaThLarge />,
@@ -37,16 +32,6 @@ function NavBarLateral({ children }) {
       path: "/Actores",
       name: "Actores",
       Icon: <FaUser />,
-    },
-    {
-      path: "/Filtros",
-      name: "Filtros",
-      Icon: <FaFilter />,
-    },
-    {
-      path: "/Puntuacion",
-      name: "Puntuacion",
-      Icon: <FaRegStar />,
     },
   ];
   const [isOpen, setIsOpen] = useState(false);

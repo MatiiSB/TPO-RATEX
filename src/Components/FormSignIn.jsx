@@ -103,8 +103,8 @@ export default function FormSignIn( {user,setUser} ) {
         <DialogContent id='campos'>
         <TextField
             autoFocus
-            value={nombre}
-            onChange={(e) => setNombre(e.target.value)}
+            value={nombreSign}
+            onChange={(e) => setNombreSign(e.target.value)}
             required
             margin="dense"
             id="nombre"
@@ -119,8 +119,8 @@ export default function FormSignIn( {user,setUser} ) {
           />
           <TextField
             autoFocus
-            value={apellido}
-            onChange={(e) => setApellido(e.target.value)}
+            value={apellidoSign}
+            onChange={(e) => setApellidoSign(e.target.value)}
             margin="dense"
             id="apellido"
             name="apellido"
@@ -135,8 +135,8 @@ export default function FormSignIn( {user,setUser} ) {
           <TextField
             autoFocus
             required
-            value={mail}
-            onChange={(e) => setMail(e.target.value)}
+            value={mailSign}
+            onChange={(e) => setMailSign(e.target.value)}
             margin="dense"
             id="email"
             name="email"

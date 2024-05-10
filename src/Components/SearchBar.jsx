@@ -34,7 +34,7 @@ function SearchBar() {
     }
     return (
         <div className="searchBarContainer">
-            <Link to="/Filtros"> 
+            <Link to="/Peliculas"> 
                 <input type="text" placeholder="Busca tu película" onChange={(e)=>{setSearch(e.target.value)}} 
                 value={search} onKeyDown={searchMovie}/>
             </Link> 

@@ -8,14 +8,14 @@
 .PerfilContainer{
     display: flex;
     flex-direction: column;
-    justify-content: flex-start;
+    justify-content: center;
     align-items: center;
+    align-content: center;
     width: 90%;
-    height: 90vh;
     border: 1px solid #62079F;
     border-radius: 40px;
     box-shadow: 0 0 20px   #c653e994;
-    gap: 50px;
+    gap: 20px;
 }
 
 .imagenPorDefectoPerfil{
@@ -50,7 +50,8 @@
     }
 
 .DatosPerfil{
-    width: 60%;
+    display: flex;
+    margin-bottom: 2%;
 }
 
 .FieldSetPerfil{
@@ -79,4 +80,8 @@
     font-family: Catamaran;
     letter-spacing: 3px;
     font-size: 25px;
+}
+
+.Campos{
+    background-color: #47444494;
 }

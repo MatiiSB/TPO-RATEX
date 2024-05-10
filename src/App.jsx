@@ -30,8 +30,7 @@ function App() {
               <Route path="/" element={<Inicio />} />
               <Route path="/Actores" element={<Actores />} />
               <Route path="/Categorias" element={<Categorias />} />
-              <Route path="/Filtros" element={<Filtros />} />
-              <Route path="/Peliculas/:name" element={<Peliculas />} />
+              <Route path="/Peliculas" element={<Peliculas />} />
               <Route path="/Datos/:name" element={<Datos />} />
               <Route path="/Puntuacion" element={<Puntuacion />} />
               <Route path="/Series" element={<Series />} />
