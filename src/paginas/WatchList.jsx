@@ -11,10 +11,9 @@ function WatchList ({ porver, agregarElemento, quitarElemento }) {
     return (
         <div className="container">
             {porver.map((peli, index) => (
-                <div>
-                <Card info={peli} key={index} />
-                <Button onClick={agregarElemento}> + </Button>
-                <Button onClick={quitarElemento}> - </Button>
+                <div key={index}>
+                    <Card info={peli} />
+                    <Button id="boton" onClick={() => quitarElemento(index)}> - </Button>
                 </div>
             ))}
         </div>

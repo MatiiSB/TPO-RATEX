@@ -16,7 +16,7 @@ function Swipers() {
     className="swipeContainer"
     modules={[Navigation, Pagination, Scrollbar, A11y, Keyboard]}
     spaceBetween={50}
-    slidesPerView={5}
+    slidesPerView="3"
     loop="true"
     navigation={{clickable: true }}
     pagination={{ clickable: true, }}
@@ -30,7 +30,6 @@ function Swipers() {
           "--swiper-pagination-bottom": "8px",
 
         }}
-      
     onSlideChange={() => console.log('slide change')}
     onSwiper={(swiper) => console.log(swiper)}
   >

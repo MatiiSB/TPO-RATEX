@@ -77,7 +77,7 @@ function Peliculas(props) {
                 movies.map((movie, index) =>
                 <div>
                 <Link key={movie.id} to={`/Datos/${movie.original_title}`} state={{movieDetalles:movie}}><Card info={movie} key={index} /></Link>
-                <Button onClick={() => sendWatchlistData(movie)}><CiHeart></CiHeart></Button>
+                <Button id="boton" onClick={() => sendWatchlistData(movie)}><CiHeart></CiHeart></Button>
                 </div>
                 ))}
         </div>
