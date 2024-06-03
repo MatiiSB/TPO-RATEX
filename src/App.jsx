@@ -21,7 +21,6 @@ function App() {
   const [watchEnviar, setWatchEnviar] = useState([]);
 
   const updateWatchlist = (watch) => {
-    // Verificar si la película ya está en la lista
     const estaEnLista = watchEnviar.some(item => item.id === watch.id);
     if (!estaEnLista) {
         setWatchEnviar([...watchEnviar, watch]);

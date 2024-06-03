@@ -21,6 +21,11 @@
     filter: opacity(55%) ;
 }
 
+.active{
+    background-color: #1f1d1d94;
+    color: black;
+    
+}
 .seccion{
     display: flex;
     position: relative;
