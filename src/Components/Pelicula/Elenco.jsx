@@ -4,6 +4,8 @@ import "./Elenco.css"
 
 
 function Elenco(){
+
+    
     return(
         <div className="Elenco-Layout">
             <h2 className="Elenco-titulo">ELENCO</h2>

@@ -62,3 +62,19 @@
     
 
 }
+
+@media screen and (max-width:640px){
+
+    .footer{
+        padding: 0 50px;
+    }
+
+    .logoRatexF{
+        width: 50px;
+    }
+
+    .copy{
+        font-family: Catamaran;
+        font-size: 15px;
+    }
+}

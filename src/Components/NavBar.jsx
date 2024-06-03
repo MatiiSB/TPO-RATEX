@@ -4,6 +4,7 @@ import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom';
 import FormDialog from "./FormLogIn";
 import FormSignIn from "./FormSignIn";
 import "./AccountMenu.css"
+import NavBarLateral from "./NavBarLateral";
 
 //-----TAILWIND---------//
 
@@ -31,9 +32,9 @@ export function NavBar() {
                 <li><FormDialog setUser={setUser} /></li>
                 <li><FormSignIn setUser={setUser}  /></li>
               </ul>
-            : <DropDownMenu  user={user} setUser={setUser} />
-              
-          }  
+            : <DropDownMenu  user={user} setUser={setUser}  />
+          } 
+          
           
         </div>
       </div>

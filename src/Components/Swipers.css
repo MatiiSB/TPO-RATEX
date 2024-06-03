@@ -5,6 +5,11 @@
 .swipeContainer{
     width: 1300px;
 }
+/*CON ESTO FUNCIONO LO RESPONSIVE*/
+.swiper {
+    width: 100%;
+    height: 100%;
+  }
 
 .portada{
     display: inline-block;
@@ -57,5 +62,17 @@
     color: rgb(255, 255, 255);
     background-color: rgba(0, 0, 0, 0.563);
 
+}
+
+
+  
+
+/*RESPONSIVE*/
+
+@media screen and (max-width:1450px){
+
+
+
+    
 }
 

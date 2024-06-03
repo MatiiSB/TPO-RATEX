@@ -84,4 +84,111 @@
 
 .Campos{
     background-color: #47444494;
+    border-radius: 5px;
+    
+    
+}
+
+
+/*RESPONSIVE*/
+
+@media screen and (max-width:1200px){
+
+    .imagenPorDefectoPerfil{
+        height: 200px;
+        width: 200px;
+
+    }
+
+    .imagenSubidaPerfil{
+        height: 200px;
+        width: 200px;
+
+    }
+
+
+    .PerfilTitulo{
+        font-size: 40px;
+    }
+
+    .LegendPerfil{
+        font-size: 30px;
+    }
+
+    .liCampos{
+        font-size: 20px;
+    }
+
+    .FieldSetPerfil{
+        border: 3px solid #62079F;
+    }
+
+}
+
+
+@media screen and (max-width:945px){
+
+    .imagenPorDefectoPerfil{
+        height: 170px;
+        width: 170px;
+
+    }
+
+    .imagenSubidaPerfil{
+        height: 170px;
+        width: 170px;
+
+    }
+
+
+    .PerfilTitulo{
+        font-size: 40px;
+    }
+
+    .LegendPerfil{
+        font-size: 25px;
+    }
+
+    .liCampos{
+        font-size: 18px;
+    }
+
+    .FieldSetPerfil{
+        border: 2px solid #62079F;
+    }
+
+}
+
+
+@media screen and (max-width:945px){
+
+    .imagenPorDefectoPerfil{
+        height: 120px;
+        width: 120px;
+
+    }
+
+    .imagenSubidaPerfil{
+        height: 120px;
+        width: 120px;
+
+    }
+
+
+    .PerfilTitulo{
+        font-size: 30px;
+    }
+
+    .LegendPerfil{
+        font-size: 20px;
+    }
+
+    .liCampos{
+        font-size: 15px;
+    }
+
+    .FieldSetPerfil{
+        border: none;
+    }
+
 }

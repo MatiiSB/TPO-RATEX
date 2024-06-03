@@ -11,7 +11,7 @@ import {
 } from "react-icons/fa";
 import { NavLink } from "react-router-dom";
 import './NavBarLateral.css';
-function NavBarLateral({ children }) {
+function NavBarLateral({ children}) {
   const menuItems = [
     {
       path: "/",
@@ -24,11 +24,6 @@ function NavBarLateral({ children }) {
       Icon: <FaFilm/>,
     },
     {
-      path: "/Categorias",
-      name: "Categorias",
-      Icon: <FaThLarge />,
-    },
-    {
       path: "/WatchList",
       name: "WatchList",
       Icon: <FaUser />,
@@ -37,7 +32,9 @@ function NavBarLateral({ children }) {
   const [isOpen, setIsOpen] = useState(false);
   const toggle = () => setIsOpen(!isOpen)
   return (
+    
     <div className="navLateralContainer">
+    
       <div className="sidebar">
         <div className="top_section">
           <div style={{marginLeft: isOpen ? "200px" : "0px" }} className="bars">
