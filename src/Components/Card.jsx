@@ -14,7 +14,7 @@ const Card = ({ info }) => {
                 <div className="movie-details">
                     <div className="box">
                         <h4 className="title">{info.title}</h4>
-                        <p className="rating">{info.vote_average}</p>
+                        <p className="rating">{info.release_date}</p>
                     </div>
                     <div className="overview">
                         <h1>Overview</h1>
