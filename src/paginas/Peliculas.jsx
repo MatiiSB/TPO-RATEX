@@ -62,6 +62,7 @@ function Peliculas(props) {
     const sendWatchlistData = (watchData)=>{
         props.updateWatchlist(watchData);
     }
+
     return (
         <div className="container">
                 <SearchBar updateUrl={updateUrl}></SearchBar>
