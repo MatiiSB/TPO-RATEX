@@ -1,0 +1,203 @@
+import * as React from 'react';
+import Button from '@mui/material/Button';
+import TextField from '@mui/material/TextField';
+import Dialog from '@mui/material/Dialog';
+import DialogActions from '@mui/material/DialogActions';
+import DialogContent from '@mui/material/DialogContent';
+import DialogTitle from '@mui/material/DialogTitle';
+import Checkbox from '@mui/material/Checkbox';
+import { useState, useEffect, createContext, useContext} from 'react'
+import {Contexto} from './Contexto'; 
+
+//-----------------------------------
+
+import IconButton from '@mui/material/IconButton';
+import Input from '@mui/material/Input';
+import InputLabel from '@mui/material/InputLabel';
+import InputAdornment from '@mui/material/InputAdornment';
+import FormControl from '@mui/material/FormControl';
+import Visibility from '@mui/icons-material/Visibility';
+import VisibilityOff from '@mui/icons-material/VisibilityOff';
+import "./FormSignIn.css"
+import { Link } from 'react-router-dom';
+import { purple } from '@mui/material/colors';
+import axios from 'axios';
+import { Formik, Form, Field, ErrorMessage } from "formik";
+export default function FormSignIn( {user,setUser} ) {
+  const [open, setOpen] = React.useState(false);  
+
+  const handleClickOpen = () => {
+    setOpen(true);
+  };
+
+  const handleClose = () => {
+    setOpen(false);
+  };
+
+  //-------------------------------------------------------------
+  const [showPassword, setShowPassword] = React.useState(false);
+
+  const handleClickShowPassword = () => setShowPassword((show) => !show);
+
+  const handleMouseDownPassword = (event) => {
+    event.preventDefault();
+  };
+
+  //checkbox
+  const label = { inputProps: { 'aria-label': 'Checkbox demo' } };
+
+
+  //----------constantes cambio de nav-------------------//
+  const [nombreSign,setNombreSign] = useState("")
+  const [apellidoSign,setApellidoSign] = useState("")
+  const [mailSign,setMailSign] = useState("")
+  const [passSign,setPassSign] = useState("")
+  const [error,setError] = useState(false)
+  const handleSubmit = (e)=> {
+    e.preventDefault();
+    if(nombreSign === "" || apellidoSign === "" || mailSign === "" || passSign === ""){
+      setError(true)
+      return
+    }
+    setError(false)
+    setUser([nombreSign,apellidoSign,mailSign,passSign])
+  }
+  const initialValues = {
+    mail: "",
+    pass: "",
+  };
+  const onSubmit = (data) => {
+    axios.post("http://localhost:3006/users", data).then(() => {
+      console.log(data);
+    });
+  };
+  const {nombre, setNombre, apellido, setApellido, clave, setClave, mail, setMail} = useContext(Contexto)
+
+  return (
+    <React.Fragment>
+          <div>
+      <Formik
+        initialValues={initialValues}
+        onSubmit={onSubmit}
+      >
+        <Form className="formContainer">
+          <label>Mail: </label>
+          <ErrorMessage name="mail" component="span" />
+          <Field
+            autocomplete="off"
+            id="inputCreatePost"
+            name="mail"
+            placeholder="(Ex. John123...)"
+          />
+
+          <label>pass: </label>
+          <ErrorMessage name="pass" component="span" />
+          <Field
+            autocomplete="off"
+            type="pass"
+            id="inputCreatePost"
+            name="pass"
+            placeholder="Your pass..."
+          />
+
+          <button type="submit"> Register</button>
+        </Form>
+      </Formik>
+    </div>
+
+
+
+
+
+
+
+
+
+      <Button id='boton'  onClick={handleClickOpen}>
+        REGISTRARSE
+      </Button>
+      <Dialog 
+        onSubmit={handleSubmit}
+        open={open}
+        onClose={handleClose}
+        PaperProps={{
+          //PONER PROPIEDADES DEL MODAL
+          style:{
+            backgroundColor: "#1F1D1D",
+            color: "#62079F",
+            fontFamily: "Catamaran",
+            alignItems: "center",
+            borderRadius: "75px",
+            width: "500px",
+            height: "610px",
+            padding: "40px",
+            boxShadow: " 0 0 0 2px #62079F",
+          } ,
+          component: 'form',
+          onSubmit: (event) => {
+            event.preventDefault();
+            const formData = new FormData(event.currentTarget);
+            const formJson = Object.fromEntries(formData.entries());
+            const email = formJson.email;
+            console.log(email);
+            handleClose();
+          },
+          
+        }}
+      >
+        <DialogTitle id='titulo' >REGISTRARSE</DialogTitle>
+        <DialogContent id='campos'>
+          <TextField
+            autoFocus
+            required
+            value={mailSign}
+            onChange={(e) => setMailSign(e.target.value)}
+            margin="dense"
+            id="email"
+            name="email"
+            label="Correo electrónico"
+            type="email"
+            fullWidth
+            variant="filled"
+            placeholder='Jhon_Doe@mail.com'
+            color='secondary'
+            style={{backgroundColor: "#F3F3F322", borderRadius: "5px", color: "#62079F", fontFamily: "Inder", }}
+          />
+          <FormControl id="passContainer" sx={{ height: "10px"}} variant="filled" required  color='secondary' fullWidth>
+          <InputLabel id="contaLabel" htmlFor="filled-adornment-password">Contraseña</InputLabel>
+          <Input
+            id="filled-adornment-password"
+            type={showPassword ? 'text' : 'password'}
+            value={passSign}
+            onChange={(e) => setPassSign(e.target.value)}
+            style={{backgroundColor: "#F3F3F322", borderRadius: "5px", color:"#F6F5E4", fontFamily: "Inder", paddingTop: "0px", fontWeight: "500" }}
+            endAdornment={
+              <InputAdornment position="end">
+                <IconButton
+                  aria-label="toggle password visibility"
+                  onClick={handleClickShowPassword}
+                  onMouseDown={handleMouseDownPassword}
+                >
+                  {showPassword ? <VisibilityOff /> : <Visibility />}
+                </IconButton>
+              </InputAdornment>
+            }
+          />
+        </FormControl>
+        <div className='checkboxContainer'>
+        <label>Acepto las {<Link target='_blank' to="/RatexPrivacyPolicy"><strong>Politicas de Privacidad </strong></Link>}
+        </label>
+        <Checkbox {...label} required size='small' sx={{
+          color: purple[800], '&.Mui-checked': {color: purple[600],},}}
+      />
+        </div>        
+
+        </DialogContent>
+        <DialogActions>
+          <Button id='boton' onClick={handleClose}>Cancelar</Button>
+          <Button id='boton' type="submit">Acceder</Button>
+        </DialogActions>
+      </Dialog>
+    </React.Fragment>
+  );
+}
