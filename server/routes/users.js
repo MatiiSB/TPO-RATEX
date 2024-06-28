@@ -2,7 +2,7 @@ const express = require("express");
 const router = express.Router();
 const {Users} = require('../models');
 const bcrypt = require('bcrypt')
-
+const {sign} = require('jsonwebtoken')
 /*
 router.get("/", async (req, res) =>{
     const listOfUsers = await Users.findAll()
@@ -29,7 +29,9 @@ router.post('/login',async (req,res)=>{
         if(!match){
             res.json({error: "Contraseña o Usuario Erroneo"});}
             else{
-        res.json("LOGEADO");}
+        const accessToken = sign({mail:user.mail, id: user.id}, "secretitouwu" )
+        res.json(accessToken);
+        }
     });
     }
 });

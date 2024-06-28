@@ -2,6 +2,12 @@
     background-color: #1f1d1d;
 }
 
+#formulario{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
 #titulo{
     font-weight: 800;
     font-size: 30px;
@@ -29,35 +35,31 @@
     margin: 10px 0
 }
 
-#nombre{
-    color: #F6F5E4;
-    font-family: inder;
-    letter-spacing: 0,5px;
-
-}
-
-#apellido{
-    color: #F6F5E4;
-    font-family: inder;
-    letter-spacing: 0,5px;
-}
-
 #email{
     color: #F6F5E4;
     font-family: inder;
     letter-spacing: 0,5px;
 }
 
+.custom-helper-text{
+    background-color: transparent !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    color: red !important;
+}
+
 #passContainer{
     margin-bottom: 0px;
+    height: 75px;
 }
+
+
 
 #filled-adornment-password{
     height: 50px;
     letter-spacing: 0,5px;
     outline-width: 0em;
-    padding-left: 15px;
-    padding-bottom: 0px;
+    padding-left: 12px;
 
 }
 
@@ -67,7 +69,7 @@
 }
 
 .checkboxContainer{
-    margin-top: 70px;
+    margin-top: 30px;
     display: flex;
     flex-direction:row;
     align-items: center;

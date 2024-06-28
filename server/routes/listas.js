@@ -1,7 +1,7 @@
 const express = require("express");
 const router = express.Router();
 const {Listas} = require('../models');
-
+const { validateToken} = require ("../middlewares/AuthMiddleware")
 
 
 router.get("/", async (req, res) =>{
@@ -9,7 +9,7 @@ router.get("/", async (req, res) =>{
     res.json(listOfListas);
 });
 
-router.post("/", async (req,res)=>{
+router.post("/", validateToken,  async (req,res)=>{
     const lista = req.body;
     await Listas.create(lista);
     res.json(lista);

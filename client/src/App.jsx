@@ -22,10 +22,10 @@ function App() {
   const [watchEnviar, setWatchEnviar] = useState([]);
 
   //seteando el estado de los datos.
-  const[listOfPosts, setlistOFPosts] =useState([]);
-  const[listOfUsers, setlistOFUsers] =useState([]);
+  //const[listOfPosts, setlistOFPosts] =useState([]);
+  //const[listOfUsers, setlistOFUsers] =useState([]);
   //conexion a la base y paso de info
-  useEffect(()=>{
+  /*useEffect(()=>{
     axios.get("http://localhost:3006/posts").then((response)=>{
       setlistOFPosts(response.data);
     });
@@ -34,7 +34,7 @@ function App() {
     axios.get("http://localhost:3006/users").then((response)=>{
       setlistOFUsers(response.data);
     });
-  },[])
+  },[])*/
 
   const updateWatchlist = (watch) => {
     const estaEnLista = watchEnviar.some(item => item.id === watch.id);
@@ -54,16 +54,6 @@ function App() {
     <DataProvider>
       <BrowserRouter>
         <div className="App">
-          <div> {listOfPosts.map((value, key)=>{
-            return <div> {value.title} </div>
-          })}</div>
-          <div> {listOfUsers.map((value, key)=>{
-            return <div>
-                  {value.username}
-                  {value.pass} 
-                  {value.mail}  
-            </div>
-          })}</div>
           <NavBar id="navbar" />
           <NavBarLateral>
             <Routes>
