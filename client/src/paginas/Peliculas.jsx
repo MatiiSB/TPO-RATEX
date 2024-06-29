@@ -5,7 +5,8 @@ import Generos from "../Components/Generos";
 import { Button } from "@mui/material";
 import { Link, useNavigate} from "react-router-dom";
 import SearchBar from "../Components/SearchBar";
-import {CiHeart} from "react-icons/ci"
+import {CiHeart,CiUnread, CiRead} from "react-icons/ci"
+import axios from 'axios'
 const API_KEY = 'api_key=93648cb92189cb6216b357ed5dfdf548';
 const BASE_URL = 'https://api.themoviedb.org/3';
 let url = `${BASE_URL}/discover/movie?sort_by=popularity.desc&${API_KEY}`;
@@ -59,9 +60,18 @@ function Peliculas(props) {
     const updateUrl = (newUrl) => {
         url = newUrl;
     };
-    const sendWatchlistData = (watchData)=>{
-        props.updateWatchlist(watchData);
-    }
+    const sendWatchlistData = (watchData, idTipoLista) => {
+        const mail = "lucaslagos1199@gmail.com";
+        const data = { mail, idTipoLista, watchData };
+        axios.put("http://localhost:3006/listas/agregarElemento", data)
+        .then(response => {
+            console.log("Datos enviados:", response.data);
+        })
+        .catch(error => {
+            console.error("Error al enviar datos:", error);
+        });
+    };
+
 
     return (
         <div className="container">
@@ -78,7 +88,9 @@ function Peliculas(props) {
                 movies.map((movie, index) =>
                 <div>
                 <Link key={movie.id} to={`/Datos/${movie.original_title}`} state={{movieDetalles:movie}}><Card info={movie} key={index} /></Link>
-                <Button id="boton" onClick={() => sendWatchlistData(movie)}><CiHeart></CiHeart></Button>
+                <Button id="boton" onClick={() => sendWatchlistData(movie,1)}><CiHeart></CiHeart></Button>
+                <Button id="boton" onClick={() => sendWatchlistData(movie,2)}><CiRead></CiRead></Button>
+                <Button id="boton" onClick={() => sendWatchlistData(movie,3)}><CiUnread></CiUnread></Button>
                 </div>
                 ))}
         </div>

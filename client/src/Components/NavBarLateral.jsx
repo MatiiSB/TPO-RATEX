@@ -1,55 +1,32 @@
 import React, { useState } from "react";
-import {
-  FaFilm,
-  FaFilter,
-  FaTh,
-  FaTv,
-  FaThLarge,
-  FaUser,
-  FaRegStar,
-  FaBars,
-} from "react-icons/fa";
+import { FaFilm, FaEye, FaEyeSlash, FaTh, FaHeart, FaBars } from "react-icons/fa";
 import { NavLink } from "react-router-dom";
 import './NavBarLateral.css';
-function NavBarLateral({ children}) {
+
+function NavBarLateral({ children }) {
   const menuItems = [
-    {
-      path: "/",
-      name: "Inicio",
-      Icon: <FaTh/>,
-    },
-    {
-      path: "./Peliculas",
-      name: "Peliculas",
-      Icon: <FaFilm/>,
-    },
-    {
-      path: "/WatchList",
-      name: "WatchList",
-      Icon: <FaUser />,
-    },
+    { path: "/", name: "Inicio", Icon: <FaTh /> },
+    { path: "/Peliculas", name: "Peliculas", Icon: <FaFilm /> },
+    { path: "/WatchList", name: "WatchList", Icon: <FaEye /> },
+    { path: "/Favoritas", name: "Favoritas", Icon: <FaHeart /> },
+    { path: "/Vistas", name: "Vistas", Icon: <FaEyeSlash /> },
   ];
+
   const [isOpen, setIsOpen] = useState(false);
-  const toggle = () => setIsOpen(!isOpen)
+  const toggle = () => setIsOpen(!isOpen);
+
   return (
-    
     <div className="navLateralContainer">
-    
-      <div className="sidebar">
+      <div className={`sidebar ${isOpen ? "open" : ""}`}>
         <div className="top_section">
-          <div style={{marginLeft: isOpen ? "200px" : "0px" }} className="bars">
-            <FaBars  style={{fontSize: isOpen? "25px":"25px"}} onClick={toggle}/>
+          <div className="bars" onClick={toggle}>
+            <FaBars />
           </div>
         </div>
         {menuItems.map((item, index) => (
-          <NavLink
-            to={item.path}
-            key={index}
-            className="link"
-            activeclassName="active"
-          >
-            <div style={{marginLeft: isOpen ? "0px" : "0px"}} className="icon">{item.Icon}</div>
-            <div style={{display: isOpen ? "block" : "none" }} className="link_text">{item.name}</div>
+          <NavLink to={item.path} key={index} className="link" activeclassName="active">
+            <div className="icon">{item.Icon}</div>
+            <div className="link_text">{item.name}</div>
           </NavLink>
         ))}
       </div>

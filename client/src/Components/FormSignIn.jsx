@@ -45,6 +45,11 @@ export default function FormSignIn({ user, setUser }) {
     axios.post("http://localhost:3006/users", data).then(() => {
       console.log(data);
     });
+    axios.post("http://localhost:3006/listas/crearListas", data).then(()=>{
+      console.log("exitoso")
+    }).catch(error => {
+      console.error("Error al crear listas:", error);
+    });
   };
 
   const { nombre, setNombre, apellido, setApellido, clave, setClave, mail, setMail } = useContext(Contexto);
@@ -147,7 +152,7 @@ export default function FormSignIn({ user, setUser }) {
               </DialogContent>
               <DialogActions>
                 <Button id='boton' onClick={handleClose}>Cancelar</Button>
-                <Button id='boton' type="submit">Acceder</Button>
+                <Button id='boton' onClick={handleClose} type="submit">Registrar</Button>
               </DialogActions>
             </Form>
           )}

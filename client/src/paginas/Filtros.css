@@ -45,6 +45,15 @@
     text-align: center;
 }
 
+
+.movie-details .rating{
+    background-color: rgba(0, 0, 0, 0.645);
+    border-radius: 20px;
+    text-align: center;
+    padding: 5px 10px; /* Añade un poco de relleno para que el fondo negro sea más visible */
+    display: inline-block; 
+}
+
 .movie-details .overview{
     position: absolute;
     left: 0;

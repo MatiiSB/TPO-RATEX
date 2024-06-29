@@ -35,7 +35,7 @@ function SliderPrincipal() {
         <div className="slider" ref={sliderRef}>
             <div className="list">
                 <div className="item">
-                    <Principal titulo="AVATAR 2: EL CAMINO DEL AGUA" descripcion="Tan re locos van a sacar como 6 peliculas mas de estos aliens azuleeeees" tipo="Aventura" src="/Imagenes/Carrusel_Principal/avatar-2.jpg" />
+                    <Principal titulo="GODZILLA x KING KONG: The New Empire" descripcion="Las bestias unen fuerza para derrotar un enemigo en común" tipo="Acción" src="/Imagenes/Carrusel_Principal/mono-vs-cocodrilo.jpg" />
                 </div>
                 <div className="item">
                     <Principal titulo="KUNG FU PANDA 4" descripcion="LA peor pelicula del panda re ql, todo generico como la de megamente 2" tipo="Infantil" src="/Imagenes/Carrusel_Principal/kung.jpg" />
@@ -52,7 +52,7 @@ function SliderPrincipal() {
                     <ThumbnailItem im="/Imagenes/Carrusel_Principal/dune-parte2.jpg" />
                 </div>
                 <div className="item">
-                    <ThumbnailItem im="/Imagenes/Carrusel_Principal/avatar-2.jpg" />
+                    <ThumbnailItem im="/Imagenes/Carrusel_Principal/mono-vs-cocodrilo.jpg" />
                 </div>
                 <div className="item">
                     <ThumbnailItem im="/Imagenes/Carrusel_Principal/kung.jpg" />

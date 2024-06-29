@@ -1,58 +1,99 @@
-
-.Elenco-Layout{
+.Elenco-Layout {
     display: flex;
     flex-direction: column;
     align-items: center;
-
-
 }
 
-.Elenco-titulo{
+.Elenco-titulo {
     font-family: Catamaran;
-    color: #62079F;
+    color: #F6F5E4;
     font-size: 35px;
     font-weight: 800;
     letter-spacing: 2px;
     text-transform: uppercase;
-    padding:  30px 100px ;
+    padding: 30px 100px;
     border-radius: 80px;
     text-decoration: underline;
     text-underline-offset: 5px;
     text-align: center;
-    
 }
 
-.Galeria-actores{
+.Galeria-actores {
     display: flex;
-    width: 800px;
-    height: 430px;
+    flex-wrap: wrap;
+    justify-content: center;
+    width: 100%;
     margin-bottom: 40px;
-
 }
 
+.ActorInfoContainer {
+    margin: 10px;
+    text-align: center;
+    flex: 1 1 150px;
+    max-width: 150px;
+}
 
-
-
-.Galeria-actores img{
-    width: 0px;
-    flex-grow: 1;
+.ActorFoto {
+    width: 100%;
+    height: auto;
     object-fit: cover;
-    opacity: .6;
-    transition: .5s ease;
     border: 1px solid #62079F;
-    border-radius:15px ;
-    
-
+    border-radius: 15px;
+    transition: transform 0.3s ease;
+    opacity: 0.6;
 }
 
-.Galeria-actores img:hover{
-    width: 350px;
+.ActorFoto:hover {
+    transform: scale(1.1);
+    box-shadow: 0 0 20px #c653e994;
     opacity: 1;
     filter: contrast(120%);
-    box-shadow: 0 0 20px   #c653e994;
 }
 
-.ActorInfoContainer{
+.ActorNombre {
+    font-family: Catamaran;
+    color: #F6F5E4;
+    font-size: 16px;
+    margin-top: 10px;
+    font-weight: bold;
+}
 
-    
+/* Media Queries */
+@media (max-width: 768px) {
+    .Galeria-actores {
+        width: 100%;
+    }
+
+    .ActorInfoContainer {
+        flex: 1 1 120px;
+        max-width: 120px;
+    }
+
+    .ActorFoto {
+        border-radius: 10px;
+    }
+
+    .ActorNombre {
+        font-size: 14px;
+    }
+}
+
+@media (max-width: 480px) {
+    .Elenco-titulo {
+        font-size: 28px;
+        padding: 20px 50px;
+    }
+
+    .ActorInfoContainer {
+        flex: 1 1 100px;
+        max-width: 100px;
+    }
+
+    .ActorFoto {
+        border-radius: 8px;
+    }
+
+    .ActorNombre {
+        font-size: 12px;
+    }
 }

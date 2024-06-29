@@ -43,7 +43,7 @@ export default function FormDialog({ setUser }) {
       if (!response.data.error) {
         console.log("login exitoso")
         setError(false);
-        setUser([mail, pass]); // Actualizar el estado global del usuario
+        setUser([mail, pass]);
         handleClose();
         sessionStorage.setItem("accessToken", response.data)
       } else {
@@ -52,6 +52,7 @@ export default function FormDialog({ setUser }) {
       }
     });
   };
+
 
   return (
     <React.Fragment>

@@ -52,23 +52,13 @@ const Peliculas = [
     },
     {
         titulo: "Godzilla x Kong - The New Empire",
-        portada: "./Imagenes/Swiper/Godzilla_x_Kong.jpg",
+        portada: "./Imagenes/Swiper/god-kong.jpg",
         sinopsis:"Ultima pelicula donde estos dos gigantes unen para derrotar a un enemigo muy poderoso",
         director: "Adam Wingard",
         actores: ["Rebecca Hall","Brian Tyree Henry","Dan Stevens","Kaylee Hottle","Alex Ferns","Fala Chen"],
         trailer: "trailer",
         duracion: "115 minutos",
         categoria: "Ciencia Ficción",
-    },
-    {
-        titulo: "One Life",
-        portada: "./Imagenes/Swiper/One_Life.jpg",
-        sinopsis:"Ultima pelicula donde estos dos gigantes unen para derrotar a un enemigo muy poderoso",
-        director: "James Hawes",
-        actores: ["Anthony Hopkins","Helena Bonham","Johnny Flynn","Lena Olin","Romola Garai","Alex Sharp","Jonathan Pryce"],
-        trailer: "trailer",
-        duracion: "110 minutos",
-        categoria: "Drama",
     }
 ]
 

@@ -48,11 +48,17 @@
     color: red !important;
 }
 
+.css-10botns-MuiInputBase-input-MuiFilledInput-input:invalid{
+    color: #F6F5E4;
+}
+
 #passContainer{
     margin-bottom: 0px;
     height: 75px;
 }
-
+.css-10botns-MuiInputBase-input-MuiFilledInput-input{
+    color: #F6F5E4;
+}
 
 
 #filled-adornment-password{

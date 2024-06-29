@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import "./NavBarStyles.css";
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import FormDialog from "./FormLogIn";
 import FormSignIn from "./FormSignIn";
 import "./AccountMenu.css";
@@ -36,8 +36,12 @@ function classNames(...classes) {
 }
 
 export function DropDownMenu({ setUser }) {
-  const handleLogOut = () => setUser([]);
-
+  const navigate = useNavigate();
+  const handleLogOut = () => {
+    setUser([]);
+    navigate("/")
+  };
+  
   return (
     <Menu as="div" className="relative inline-block text-left">
       <div>

@@ -1,7 +1,7 @@
 module.exports = (sequelize, DataTypes) => {
     const Listas = sequelize.define("Listas",{
         idUsuario:{
-            type: DataTypes.INTEGER,
+            type: DataTypes.STRING,
             allowNull:false,
         },
         idTipoLista:{
@@ -11,6 +11,7 @@ module.exports = (sequelize, DataTypes) => {
         Peliculas:{
             type: DataTypes.JSON,
             allowNull:false,
+            defaultValue: [] 
         },
     });
     return Listas

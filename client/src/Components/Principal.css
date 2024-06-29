@@ -35,7 +35,9 @@
     color: #fff;
     text-shadow: 0 5px 10px #0004;
 }
-
+.slider .list .item:nth-child(1) .content .description{
+    font-size: 1.3em;
+}
 .slider .list .item .content .title,
 .slider .list .item .content .type{
     font-size: 5em;
