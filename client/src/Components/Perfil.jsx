@@ -45,11 +45,11 @@ export default function Perfil({user, setUser}) {
             <ul className="ulCampos">
               <li className="liCampos">
                 <label>Nombre</label>
-                <input className="Campos" disabled placeholder="Jhon" type="text"></input>
+                <input className="Campos" placeholder="Jhon" type="text"></input>
               </li>
               <li className="liCampos">
                 <label>Apellido</label>
-                <input className="Campos" disabled placeholder="Doe" type="text"></input>
+                <input className="Campos" placeholder="Doe" type="text"></input>
               </li>
             </ul>
             <ul className="ulCampos">

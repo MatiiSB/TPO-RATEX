@@ -3,21 +3,24 @@ const router = express.Router();
 const {Users} = require('../models');
 const bcrypt = require('bcrypt')
 const {sign} = require('jsonwebtoken')
-/*
-router.get("/", async (req, res) =>{
-    const listOfUsers = await Users.findAll()
-    res.json(listOfUsers);
-});
-*/
-router.post("/", async (req,res)=>{
-    const {mail, pass} = req.body;
-    bcrypt.hash(pass, 10).then((hash)=>{
-        Users.create({
-            mail:mail,
-            pass:hash
+
+router.post("/", async (req, res) => {
+    const { mail, pass } = req.body;
+    try {
+        const existingUser = await Users.findOne({ where: { mail } });
+        if (existingUser) {
+            return res.status(400).json({ error: "usuario ya registrado" });
+        }
+        const hash = await bcrypt.hash(pass, 10);
+        await Users.create({
+            mail: mail,
+            pass: hash
         });
-    });
-    res.json("SUCCESS");
+        res.json("SUCCESS");
+    } catch (error) {
+        alert("usuario ya creado")
+        res.status(500).json({ error: "Ha ocurrido un error al registrar el usuario" });
+    }
 });
 
 router.post('/login',async (req,res)=>{

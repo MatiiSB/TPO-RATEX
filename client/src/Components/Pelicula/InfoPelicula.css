@@ -31,7 +31,7 @@
     position: relative;
     justify-content: space-around;
     align-items: center;
-    height: 100vh;
+    height: 90vh;
 }
 
 .info{
@@ -40,7 +40,7 @@
     flex-direction: column;
     justify-content: center;
     gap: 50px;
-    height: 100%;
+    height: 90vh;
     background-color: #000000a6;
     align-items: center;
     align-content: center;
@@ -86,6 +86,7 @@
 .botonera{
     display: flex;
     justify-content: center;
+    height: 30px;
     
     
 }
@@ -109,4 +110,431 @@
 
 .PeliPortada{
     box-shadow: 0 0 10px 7px #1a1919a6;
+}
+
+@media (max-width: 1640px) {
+
+    .seccion {
+        padding: 10px;
+        height: 80vh;  /* Reducir padding en pantallas más pequeñas */
+    }
+
+    .info {
+        width: 40%; /* Aumentar el ancho para pantallas más pequeñas */
+        padding: 10px; /* Reducir padding en pantallas más pequeñas */
+    }
+
+    .imgContainer {
+        max-width: 200px; /* Reducir el ancho máximo de la imagen en pantallas más pequeñas */
+    }
+
+    .PeliPortada {
+        max-width: 200px; /* Reducir el ancho máximo de la imagen en pantallas más pequeñas */
+    }
+    .botonera{
+        height: 20px;
+    }
+
+    #bts_categorias{
+        font-size: 13px;
+    }
+
+    
+}
+
+
+@media (max-width: 1550px) {
+
+    .seccion {
+        padding: 10px;
+        height: 70vh; /* Reducir padding en pantallas más pequeñas */
+    }
+
+    .info {
+        width: 40%; /* Aumentar el ancho para pantallas más pequeñas */
+        padding: 10px; /* Reducir padding en pantallas más pequeñas */
+    }
+
+    .imgContainer {
+        max-width: 200px; /* Reducir el ancho máximo de la imagen en pantallas más pequeñas */
+    }
+
+    .PeliPortada {
+        max-width: 200px; /* Reducir el ancho máximo de la imagen en pantallas más pequeñas */
+    }
+
+    .infoTitulo{
+        font-size: 25px;
+    }
+
+    .info p, h2{
+        font-size: 16px;
+    }
+    .botonera{
+        height: 20px;
+    }
+
+    #bts_categorias{
+        font-size: 13px;
+    }
+
+    .valoracion{
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+        gap: 15px;
+    }
+    .valoracion div{
+        display: flex;
+        flex-direction: column;
+        gap: 15px;
+        
+    }
+
+    .css-1qqgbpl-MuiRating-root{
+        font-size: 1.5rem !important;
+    }
+}
+
+@media (max-width: 1225px) {
+
+    .seccion {
+        padding: 10px;
+        height: 60vh; /* Reducir padding en pantallas más pequeñas */
+    }
+
+    .info {
+        width: 40%; /* Aumentar el ancho para pantallas más pequeñas */
+        padding: 10px; /* Reducir padding en pantallas más pequeñas */
+    }
+
+    .imgContainer {
+        max-width: 200px; /* Reducir el ancho máximo de la imagen en pantallas más pequeñas */
+    }
+
+    .PeliPortada {
+        max-width: 200px; /* Reducir el ancho máximo de la imagen en pantallas más pequeñas */
+    }
+
+    .infoTitulo{
+        font-size: 25px;
+    }
+
+    .info p, h2{
+        font-size: 16px;
+    }
+    .botonera{
+        height: 20px;
+    }
+
+    #bts_categorias{
+        font-size: 13px;
+    }
+
+    .valoracion{
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+        gap: 15px;
+    }
+    .valoracion div{
+        display: flex;
+        flex-direction: column;
+        gap: 15px;
+    }
+
+    .css-1qqgbpl-MuiRating-root{
+        font-size: 1.4rem !important;
+    }
+
+}
+
+@media (max-width: 1065px) {
+
+    .seccion {
+        padding: 10px;
+        height: 60vh; /* Reducir padding en pantallas más pequeñas */
+    }
+
+    .info {
+        width: 50%; /* Aumentar el ancho para pantallas más pequeñas */
+        padding: 10px; /* Reducir padding en pantallas más pequeñas */
+    }
+
+    .imgContainer {
+        max-width: 170px; /* Reducir el ancho máximo de la imagen en pantallas más pequeñas */
+    }
+
+    .PeliPortada {
+        max-width: 200px; /* Reducir el ancho máximo de la imagen en pantallas más pequeñas */
+    }
+
+    .infoTitulo{
+        font-size: 18px;
+    }
+
+    .info p, h2{
+        font-size: 15px;
+    }
+
+    
+    .botonera{
+        height: 15px;
+    }
+
+    #bts_categorias{
+        font-size: 10px;
+    }
+
+    .css-1qqgbpl-MuiRating-root{
+        font-size: 1.2rem !important;
+    }
+}
+
+
+@media (max-width: 910px) {
+
+    .seccion {
+        padding: 10px;
+        height: 50vh; /* Reducir padding en pantallas más pequeñas */
+    }
+
+    .info {
+        width: 50%; /* Aumentar el ancho para pantallas más pequeñas */
+        padding: 10px; /* Reducir padding en pantallas más pequeñas */
+    }
+
+    .imgContainer {
+        max-width: 170px; /* Reducir el ancho máximo de la imagen en pantallas más pequeñas */
+    }
+
+    .PeliPortada {
+        max-width: 150px; /* Reducir el ancho máximo de la imagen en pantallas más pequeñas */
+    }
+
+    .infoTitulo{
+        font-size: 17px;
+        padding-bottom: 10px;
+    }
+
+    .info p, h2{
+        font-size: 15px;
+    }
+
+    .botonera{
+        height: 15px;
+    }
+
+    #bts_categorias{
+        font-size: 10px;
+    }
+
+    .css-1qqgbpl-MuiRating-root{
+        font-size: 1.2rem !important;
+    }
+   
+}
+
+@media (max-width: 790px) {
+
+    .seccion {
+        padding: 0px;
+        height: 100%;
+        padding-left: 10px; /* Reducir padding en pantallas más pequeñas */
+    }
+
+    .info {
+        width: 50%; /* Aumentar el ancho para pantallas más pequeñas */
+        padding: 5px;
+        height: 100%; /* Reducir padding en pantallas más pequeñas */
+    }
+
+    .imgContainer {
+        max-width: 130px; /* Reducir el ancho máximo de la imagen en pantallas más pequeñas */
+    }
+
+    .PeliPortada {
+        max-width: 130px; /* Reducir el ancho máximo de la imagen en pantallas más pequeñas */
+    }
+
+    .infoTitulo{
+        font-size: 20px;
+        padding-bottom: 1px;
+    }
+
+    .info p, h2{
+        font-size: 13px;
+    }
+
+    .botonera{
+        height: 15px;
+    }
+
+    #bts_categorias{
+        font-size: 10px;
+    }
+
+    .css-1qqgbpl-MuiRating-root{
+        font-size: 1rem !important;
+    }
+   
+}
+
+@media (max-width: 705px) {
+
+    .seccion {
+        
+        height: 40vh;
+         /* Reducir padding en pantallas más pequeñas */
+    }
+
+    .info {
+        width: 90%;
+        height: 100%; /* Aumentar el ancho para pantallas más pequeñas */
+        /* Reducir padding en pantallas más pequeñas */
+    }
+
+    .imgContainer {
+        max-width: 0px; /* Reducir el ancho máximo de la imagen en pantallas más pequeñas */
+    }
+
+    .PeliPortada {
+        max-width: 0px; /* Reducir el ancho máximo de la imagen en pantallas más pequeñas */
+    }
+
+    .infoTitulo{
+        font-size: 17px;
+        padding-bottom: 1px;
+    }
+
+    .info p, h2{
+        font-size: 13px;
+    }
+
+    .botonera{
+        height: 15px;
+    }
+
+    #bts_categorias{
+        font-size: 10px;
+    }
+
+    .css-1qqgbpl-MuiRating-root{
+        font-size: 0rem !important;
+        display: none;
+    }
+
+    .valoracion{
+        width: 0%;
+
+    }
+ 
+   
+}
+
+@media (max-width: 625px) {
+
+    .seccion {
+        
+        height: 40vh;
+         /* Reducir padding en pantallas más pequeñas */
+    }
+
+    .info {
+        width: 90%;
+        height: 100%; /* Aumentar el ancho para pantallas más pequeñas */
+        /* Reducir padding en pantallas más pequeñas */
+    }
+
+    .imgContainer {
+        max-width: 0px; /* Reducir el ancho máximo de la imagen en pantallas más pequeñas */
+    }
+
+    .PeliPortada {
+        max-width: 0px; /* Reducir el ancho máximo de la imagen en pantallas más pequeñas */
+    }
+
+    .infoTitulo{
+        font-size: 17px;
+        padding-bottom: 1px;
+    }
+
+    .info p, h2{
+        font-size: 13px;
+    }
+
+    .botonera{
+        height: 15px;
+    }
+
+    #bts_categorias{
+        font-size: 10px;
+    }
+
+    .css-1qqgbpl-MuiRating-root{
+        font-size: 0rem !important;
+        display: none;
+    }
+
+    .valoracion{
+        width: 0%;
+
+    }
+ 
+   
+}
+
+@media (max-width: 595px) {
+
+    .seccion {
+        
+        height: 30vh;
+         /* Reducir padding en pantallas más pequeñas */
+    }
+
+    .info {
+        width: 90%;
+        height: 100%; /* Aumentar el ancho para pantallas más pequeñas */
+        /* Reducir padding en pantallas más pequeñas */
+    }
+
+    .imgContainer {
+        max-width: 0px; /* Reducir el ancho máximo de la imagen en pantallas más pequeñas */
+    }
+
+    .PeliPortada {
+        max-width: 0px; /* Reducir el ancho máximo de la imagen en pantallas más pequeñas */
+    }
+
+    .infoTitulo{
+        font-size: 15px;
+        padding-bottom: 1px;
+        
+    }
+
+    .info p, h2{
+        font-size: 12px;
+    }
+
+    .botonera{
+        height: 10px;
+        display: none;
+    }
+
+    #bts_categorias{
+        font-size: 8px;
+    }
+
+    .css-1qqgbpl-MuiRating-root{
+        font-size: 0rem !important;
+        display: none;
+    }
+
+    .valoracion{
+        width: 0%;
+
+    }
+
 }

@@ -12,9 +12,8 @@
     align-items: center;
     align-content: center;
     width: 90%;
-    border: 1px solid #62079F;
+    border: none;   
     border-radius: 40px;
-    box-shadow: 0 0 20px   #c653e994;
     gap: 20px;
 }
 

@@ -21,13 +21,17 @@ import { Formik, Form, Field, ErrorMessage } from "formik";
 import * as Yup from 'yup';
 import { useState, useContext } from 'react';
 import { Contexto } from './Contexto'; 
+import Alert from '@mui/material/Alert';
 
 export default function FormSignIn({ user, setUser }) {
   const [open, setOpen] = useState(false);
   const [showPassword, setShowPassword] = useState(false);
+  const [showAlert, setShowAlert] = useState({ show: false, message: '', severity: 'success' });
 
   const handleClickOpen = () => setOpen(true);
+
   const handleClose = () => setOpen(false);
+
   const handleClickShowPassword = () => setShowPassword((show) => !show);
   const handleMouseDownPassword = (event) => event.preventDefault();
 
@@ -37,17 +41,23 @@ export default function FormSignIn({ user, setUser }) {
   };
 
   const validationSchema = Yup.object().shape({
-    mail: Yup.string().min(3).max(30).required(""),
-    pass: Yup.string().min(6, "La contraseña debe tener como mínimo 6 caracteres").max(20).required(),
+    mail: Yup.string().email('Correo inválido').min(3, 'El correo debe tener al menos 3 caracteres').max(30, 'El correo no puede tener más de 30 caracteres').required('El correo es obligatorio'),
+    pass: Yup.string().min(6, 'La contraseña debe tener como mínimo 6 caracteres').max(20, 'La contraseña no puede tener más de 20 caracteres').required('La contraseña es obligatoria'),
   });
 
-  const onSubmit = (data) => {
-    axios.post("http://localhost:3006/users", data).then(() => {
-      console.log(data);
+  const onSubmit = (values, { setSubmitting, resetForm }) => {
+    axios.post("http://localhost:3006/users", values).then(() => {
+      setSubmitting(false);
+      resetForm();
+      setOpen(false);
+      setShowAlert({ show: true, message: 'Registro exitoso', severity: 'success' });
+      setTimeout(() => setShowAlert({ show: false }), 3000);
+    }).catch(error => {
+      setSubmitting(false);
+      setShowAlert({ show: true, message: 'Error en el registro', severity: 'error' });
+      setTimeout(() => setShowAlert({ show: false }), 3000);
     });
   };
-
-  const { nombre, setNombre, apellido, setApellido, clave, setClave, mail, setMail } = useContext(Contexto);
 
   return (
     <React.Fragment>
@@ -76,8 +86,18 @@ export default function FormSignIn({ user, setUser }) {
           validationSchema={validationSchema}
           onSubmit={onSubmit}
         >
-          {({ errors, touched, handleChange, handleBlur, handleSubmit, values }) => (
-            <Form id="formulario" onSubmit={handleSubmit}>
+          {({ errors, touched, handleChange, handleBlur, handleSubmit, validateForm, values, isSubmitting }) => (
+            <Form id="formulario" onSubmit={(e) => {
+              e.preventDefault();
+              validateForm().then(errors => {
+                if (Object.keys(errors).length === 0) {
+                  handleSubmit();
+                } else {
+                  setShowAlert({ show: true, message: 'Por favor, complete todos los campos correctamente', severity: 'error' });
+                  setTimeout(() => setShowAlert({ show: false }), 3000);
+                }
+              });
+            }}>
               <DialogTitle id='titulo'>REGISTRARSE</DialogTitle>
               <DialogContent id='campos'>
                 <TextField
@@ -97,10 +117,8 @@ export default function FormSignIn({ user, setUser }) {
                   color='secondary'
                   error={touched.mail && !!errors.mail}
                   helperText={touched.mail && errors.mail}
-                  style={{ backgroundColor: "#F3F3F322", borderRadius: "5px", color: "#62079F", fontFamily: "Inder" }}
-                  FormHelperTextProps={{
-                    className: "custom-helper-text"}}
-                  />
+                  style={{  color: "#F6F5E4", backgroundColor: "#F3F3F322", borderRadius: "5px", fontFamily: "Inder",fontWeight: "500" }}
+                />
                 <FormControl
                   id="passContainer"
                   sx={{ height: "20px" }}
@@ -147,12 +165,17 @@ export default function FormSignIn({ user, setUser }) {
               </DialogContent>
               <DialogActions>
                 <Button id='boton' onClick={handleClose}>Cancelar</Button>
-                <Button id='boton' onClick={handleClose} type="submit">Registrar</Button>
+                <Button id='boton' type="submit" disabled={isSubmitting}>Acceder</Button>
               </DialogActions>
             </Form>
           )}
         </Formik>
       </Dialog>
+      {showAlert.show && (
+        <Alert severity={showAlert.severity} style={{ marginTop: '2px' }}>
+          {showAlert.message}
+        </Alert>
+      )}
     </React.Fragment>
   );
 }
