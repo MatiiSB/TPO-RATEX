@@ -13,7 +13,7 @@ import InputAdornment from '@mui/material/InputAdornment';
 import FormControl from '@mui/material/FormControl';
 import Visibility from '@mui/icons-material/Visibility';
 import VisibilityOff from '@mui/icons-material/VisibilityOff';
-import "./FormLogIn.css"
+import "./FormLogIn.css";
 import FormSignIn from './FormSignIn';
 import axios from 'axios';
 import { Contexto } from './Contexto'; 
@@ -24,7 +24,7 @@ export default function FormDialog({ setUser }) {
   const [mail, setMail] = useState("");
   const [pass, setPass] = useState("");
   const [error, setError] = useState(false);
-
+  const { setMail: setContextMail } = useContext(Contexto);
   const handleClickOpen = () => setOpen(true);
   const handleClose = () => setOpen(false);
   const handleClickShowPassword = () => setShowPassword((show) => !show);
@@ -41,18 +41,19 @@ export default function FormDialog({ setUser }) {
     const data = { mail, pass };
     axios.post("http://localhost:3006/users/login", data).then((response) => {
       if (!response.data.error) {
-        console.log("login exitoso")
+        console.log("login exitoso");
         setError(false);
         setUser([mail, pass]);
+        setContextMail(mail);  // Update context mail
         handleClose();
-        sessionStorage.setItem("accessToken", response.data)
+        sessionStorage.setItem("accessToken", response.data);
+        window.location.reload(); // Refrescar la página
       } else {
         console.log("error");
         setError(true);
       }
     });
   };
-
 
   return (
     <React.Fragment>

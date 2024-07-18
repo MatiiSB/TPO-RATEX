@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import "./NavBarStyles.css";
 import { Link, useNavigate } from 'react-router-dom';
 import FormDialog from "./FormLogIn";
@@ -10,6 +10,23 @@ import { Menu, Transition } from '@headlessui/react';
 
 export function NavBar() {
   const [user, setUser] = useState([]);
+
+  useEffect(() => {
+    const checkAccessToken = () => {
+      const accessToken = sessionStorage.getItem('accessToken');
+      if (accessToken) {
+        setUser([accessToken]);
+      } else {
+        setUser([]);
+      }
+    };
+
+    checkAccessToken();
+
+    const interval = setInterval(checkAccessToken, 1000);
+
+    return () => clearInterval(interval);
+  }, []);
 
   return (
     <div className="navContainer">
@@ -38,8 +55,10 @@ function classNames(...classes) {
 export function DropDownMenu({ setUser }) {
   const navigate = useNavigate();
   const handleLogOut = () => {
+    sessionStorage.removeItem('accessToken');
     setUser([]);
-    navigate("/")
+    navigate("/");
+    window.location.reload(); // Reload the page
   };
   
   return (

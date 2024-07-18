@@ -17,24 +17,11 @@ import Perfil from "./Components/Perfil.jsx";
 import DataProvider from "./Components/Contexto.jsx";
 import Datos from "./Components/Pelicula/Datos.jsx";
 import axios from 'axios';
+import Favoritas from "./paginas/Favoritas.jsx";
+import Vistas from "./paginas/Vistas.jsx";
 
 function App() {
   const [watchEnviar, setWatchEnviar] = useState([]);
-
-  //seteando el estado de los datos.
-  //const[listOfPosts, setlistOFPosts] =useState([]);
-  //const[listOfUsers, setlistOFUsers] =useState([]);
-  //conexion a la base y paso de info
-  /*useEffect(()=>{
-    axios.get("http://localhost:3006/posts").then((response)=>{
-      setlistOFPosts(response.data);
-    });
-  },[])
-  useEffect(()=>{
-    axios.get("http://localhost:3006/users").then((response)=>{
-      setlistOFUsers(response.data);
-    });
-  },[])*/
 
   const updateWatchlist = (watch) => {
     const estaEnLista = watchEnviar.some(item => item.id === watch.id);
@@ -62,6 +49,14 @@ function App() {
               <Route
                 path="/WatchList"
                 element={<WatchList porver={watchEnviar} quitarElemento={quitarElementoWatchlist}  />}
+              />
+                            <Route
+                path="/Favoritas"
+                element={<Favoritas porver={watchEnviar} quitarElemento={quitarElementoWatchlist}  />}
+              />
+                            <Route
+                path="/Vistas"
+                element={<Vistas porver={watchEnviar} quitarElemento={quitarElementoWatchlist}  />}
               />
               <Route path="/Categorias" element={<Categorias />} />
               <Route

@@ -1,59 +1,75 @@
 const express = require("express");
 const router = express.Router();
 const {Listas} = require('../models');
-const { validateToken} = require ("../middlewares/AuthMiddleware")
+const {validateToken} = require ("../middlewares/AuthMiddleware")
 
 
-router.get("/", async (req, res) =>{
+router.get("/", validateToken, async (req, res) =>{
     const listOfListas = await Listas.findAll()
     res.json(listOfListas);
 });
 
-router.post("/",  async (req,res)=>{
-    const lista = req.body;
-    await Listas.create(lista);
-    res.json(lista);
-});
-router.post('/crearListas', async (req, res) => {
-    const { mail } = req.body;
-    if (!mail) {
-        return res.status(400).send({ error: 'El campo mail es requerido.' });
-    }
+router.get("/WatchList", async (req, res) => {
+    const { mail } = req.query;
     try {
-        const listas = [];
-        for (let i = 1; i <= 3; i++) {
-            listas.push({
-                idUsuario: mail,
-                idTipoLista: i,
-                Peliculas: []
-            });
-        }
-        await Listas.bulkCreate(listas);
-        res.status(201).send({ message: 'Listas creadas exitosamente.' });
+        const listOfListas = await Listas.findAll({ where: { idTipoLista: 1, idUsuario: mail } });
+        res.json(listOfListas);
     } catch (error) {
-        console.error('Error al crear listas:', error);
-        res.status(500).send({ error: 'Error al crear listas.' });
+        console.error("Error al obtener la lista de películas", error);
+        res.status(500).json({ error: "Error al obtener la lista de películas" });
+    }
+});
+router.get("/WatchList", async (req, res) => {
+    const { mail } = req.query;
+    try {
+        const listOfListas = await Listas.findAll({ where: { idTipoLista: 1, idUsuario: mail } });
+        res.json(listOfListas);
+    } catch (error) {
+        console.error("Error al obtener la lista de películas", error);
+        res.status(500).json({ error: "Error al obtener la lista de películas" });
+    }
+});
+router.get("/Favoritas", async (req, res) => {
+    const { mail } = req.query;
+    try {
+        const listOfListas = await Listas.findAll({ where: { idTipoLista: 2, idUsuario: mail } });
+        res.json(listOfListas);
+    } catch (error) {
+        console.error("Error al obtener la lista de películas", error);
+        res.status(500).json({ error: "Error al obtener la lista de películas" });
+    }
+});
+router.get("/Vistas", async (req, res) => {
+    const { mail } = req.query;
+    try {
+        const listOfListas = await Listas.findAll({ where: { idTipoLista: 3, idUsuario: mail } });
+        res.json(listOfListas);
+    } catch (error) {
+        console.error("Error al obtener la lista de películas", error);
+        res.status(500).json({ error: "Error al obtener la lista de películas" });
     }
 });
 
-router.put('/agregarElemento', async (req, res) => {
-    console.log("holas", req.body);
-    try {
-        const { mail, idTipoLista, watchData } = req.body;
-        console.log("Datos recibidos:", { mail, idTipoLista, watchData });
-        const lista = await Listas.findOne({ where: { idUsuario: mail, idTipoLista: idTipoLista } });
-        if (lista) {
-            lista.Peliculas.push(watchData);
-            await lista.save();
-            console.log("Lista actualizada:", lista);
-            res.status(200).json(lista);
-        } else {
-            console.log("Lista no encontrada para:", { mail, idTipoLista });
-            res.status(404).json({ error: 'Lista no encontrada' });
-        }
-    } catch (error) {
-        console.error('Error al agregar elemento:', error);
-        res.status(400).json({ error: error.message });
+//eliminar
+router.post("/EliminarPelicula", async (req, res) =>{
+    const pelicula = req.body
+    console.log(pelicula)
+    const listOfListas = await Listas.findOne({where:{idTipoLista : pelicula.idTipoLista, idUsuario : pelicula.idUsuario, idPeliculas: pelicula.idPeliculas }})
+    await listOfListas.destroy();
+    console.log("pelicula destruida");
+    res.json(listOfListas);
+});
+
+router.post("/", validateToken,  async (req,res)=>{
+    const lista = req.body;
+    const VerificarSiEnLista = await Listas.findOne({where:{idTipoLista : lista.idTipoLista, idUsuario : lista.idUsuario, idPeliculas: lista.idPeliculas }})
+    if (!VerificarSiEnLista){
+        await Listas.create(lista);
+        res.json(lista);
+        console.log("Exito")
+    }else{
+        console.log("Repetido")
+        res.json(lista)
     }
 });
 module.exports = router;

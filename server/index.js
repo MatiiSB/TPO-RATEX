@@ -10,9 +10,6 @@ const db = require ('./models')
 
 //Routers
 
-//posts
-const postRouter = require("./routes/posts");
-app.use("/posts", postRouter);
 
 //users
 const userRouter = require ("./routes/users")
@@ -22,15 +19,8 @@ app.use("/users",userRouter);
 const listasRouter = require("./routes/listas")
 app.use("/listas", listasRouter)
 
-//tipoListas
-const tipoListasRouter = require("./routes/tipoListas")
-app.use("/tipoListas", tipoListasRouter)
-
-
 db.sequelize.sync().then(()=>{
     app.listen (3006, ()=> {
         console.log("Utilizando puerto 3006")
     })
 })
-
-
